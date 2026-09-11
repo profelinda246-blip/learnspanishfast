@@ -1,6 +1,9 @@
 # Secrets — never commit this. It holds a GitHub personal access token.
 github api.txt
 
+# Local helper script that reads the token above — not part of the site.
+subir-a-github.bat
+
 # OS junk
 .DS_Store
 Thumbs.db
