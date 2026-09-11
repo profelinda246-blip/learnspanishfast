@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #F6EFE7; color: #23191A; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: #8C2F39; text-decoration: none; }
+  a:hover { color: #23191A; }
+</style>
+</helmet>
+<div style="font-family: 'Bricolage Grotesque', 'Helvetica Neue', Helvetica, sans-serif; background: #F6EFE7; color: #23191A; overflow-x: hidden">
+
+  <header style="display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 22px clamp(20px, 5vw, 64px); border-bottom: 1px solid #E2D3C4; position: relative; z-index: 30">
+    <a href="Learn%20Spanish%20Fast%20Hoy.dc.html" style="display: flex; flex-direction: column; line-height: 1; color: #23191A">
+      <span style="font-size: 23px; font-weight: 600; letter-spacing: -0.035em">Learn Spanish Fast</span>
+      <span style="font-size: 13px; color: #8C2F39; margin-top: 7px">hoy · con Profe Linda</span>
+    </a>
+    <nav style="display: flex; align-items: center; gap: clamp(14px, 2.4vw, 28px); flex-wrap: wrap; font-size: 15px">
+      <div style="position: relative" onMouseEnter="{{ openMenu }}" onMouseLeave="{{ closeMenu }}">
+        <a href="All%20Classes.dc.html" style="color: #8C2F39; font-weight: 500">Courses</a>
+        <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position: absolute; top: calc(100% + 14px); left: -16px; min-width: 250px; background: #FBF6F0; border: 1px solid #E2D3C4; padding: 8px; display: grid; gap: 1px; box-shadow: 0 18px 40px rgba(35,25,26,0.1)">
+            <sc-for list="{{ levels }}" as="l" hint-placeholder-count="5">
+              <a href="All%20Classes.dc.html" style="display: block; padding: 11px 14px; color: #4A3B37; font-size: 15px" style-hover="background: #F0D3D7; color: #23191A">{{ l.name }}</a>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+      <a href="Know%20Your%20Spanish%20Level.dc.html" style="color: #5C4A46" style-hover="color: #23191A">Your level</a>
+      <a href="About.dc.html" style="color: #5C4A46" style-hover="color: #23191A">About</a>
+      <a href="Learn%20Spanish%20Fast%20Hoy.dc.html#faq" style="color: #5C4A46" style-hover="color: #23191A">FAQ</a>
+      <a href="mailto:profe@learnspanishfasthoy.com" style="background: #8C2F39; color: #FFF6F2; padding: 12px 20px; border-radius: 999px; font-size: 14px" style-hover="background: #23191A; color: #FFF6F2">Register</a>
+    </nav>
+  </header>
+
+  <section style="padding: clamp(44px, 6vw, 84px) clamp(20px, 5vw, 64px) clamp(32px, 4vw, 52px); background: linear-gradient(180deg, #FBF6F0 0%, #F6EFE7 100%)">
+    <div style="max-width: 1180px; margin: 0 auto">
+      <div style="font-size: 14px; color: #8C2F39; margin-bottom: 18px">All classes · online via Zoom</div>
+      <h1 style="font-size: clamp(38px, 5.6vw, 72px); line-height: 0.98; letter-spacing: -0.05em; font-weight: 500; margin: 0 0 24px; max-width: 20em">Five levels. One weekly class. No textbook.</h1>
+      <p style="font-size: clamp(17px, 1.5vw, 20px); line-height: 1.55; font-weight: 300; color: #4A3B37; max-width: 40em; margin: 0 0 30px">Every class is 100% comprehensible Spanish, built on stories and a short novel. Choose the level at which you can <em style="font-style: normal; font-weight: 500">speak</em>, not the level at which you can understand. Classes fill fast, so register early.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px">
+        <a href="Know%20Your%20Spanish%20Level.dc.html" style="font-size: 14px; background: #8C2F39; color: #FFF6F2; padding: 17px 28px; border-radius: 999px" style-hover="background: #23191A; color: #FFF6F2">Not sure? Find your level</a>
+        <a href="#books" style="font-size: 14px; color: #23191A; padding: 17px 28px; border-radius: 999px; border: 1px solid #D6C2B2" style-hover="border-color: #23191A">Books &amp; audiobook steps</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 0 clamp(20px, 5vw, 64px) clamp(48px, 7vw, 90px)">
+    <div style="max-width: 1180px; margin: 0 auto; display: grid; gap: 16px">
+      <sc-for list="{{ levels }}" as="l" hint-placeholder-count="5">
+        <article style="background: #FBF6F0; border: 1px solid #E2D3C4; padding: clamp(22px, 3vw, 34px); display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(24px, 3vw, 40px); align-items: start">
+          <div>
+            <div style="font-size: 13px; color: #8C2F39; margin-bottom: 12px">{{ l.step }}</div>
+            <h2 style="font-size: clamp(27px, 3.2vw, 38px); line-height: 1.02; letter-spacing: -0.045em; font-weight: 500; margin: 0 0 14px">{{ l.name }}</h2>
+            <p style="font-size: 16px; line-height: 1.62; font-weight: 300; color: #4A3B37; margin: 0 0 20px">{{ l.blurb }}</p>
+            <div style="font-size: 14px; color: #6B5852; margin-bottom: 6px">You are ready for this level if:</div>
+            <p style="font-size: 15px; line-height: 1.6; color: #332623; margin: 0">{{ l.ready }}</p>
+          </div>
+          <div>
+            <div style="aspect-ratio: 3 / 2; border: 1px solid #DCC8B8; background-color: #EFE4D8; background-image: repeating-linear-gradient(135deg, rgba(140,47,57,0.07) 0 2px, transparent 2px 11px); display: flex; align-items: flex-end; padding: 14px">
+              <span style="font-size: 12px; color: #6B5852; background: #F6EFE7; padding: 7px 10px">Novel cover: {{ l.book }}</span>
+            </div>
+          </div>
+          <div style="display: grid; gap: 14px">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid #E2D3C4; padding-bottom: 12px">
+              <span style="font-size: 14px; color: #6B5852">Price</span>
+              <span style="font-size: 24px; font-weight: 500; letter-spacing: -0.04em">{{ l.price }}</span>
+            </div>
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid #E2D3C4; padding-bottom: 12px">
+              <span style="font-size: 14px; color: #6B5852">Meets</span>
+              <span style="font-size: 15px; text-align: right">{{ l.meets }}</span>
+            </div>
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid #E2D3C4; padding-bottom: 12px">
+              <span style="font-size: 14px; color: #6B5852">Term</span>
+              <span style="font-size: 15px; text-align: right">{{ l.term }}</span>
+            </div>
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid #E2D3C4; padding-bottom: 12px">
+              <span style="font-size: 14px; color: #6B5852">Novel</span>
+              <span style="font-size: 15px; text-align: right">{{ l.book }}</span>
+            </div>
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+              <span style="font-size: 14px; color: #6B5852">Homework</span>
+              <span style="font-size: 15px; text-align: right">{{ l.homework }}</span>
+            </div>
+            <button type="button" onClick="{{ l.add }}" style="margin-top: 6px; width: 100%; border: 0; cursor: pointer; font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 14px; background: #8C2F39; color: #FFF6F2; padding: 17px 24px; border-radius: 999px" style-hover="background: #23191A">{{ l.cta }}</button>
+            <a href="mailto:profe@learnspanishfasthoy.com" style="font-size: 14px; color: #8C2F39; text-align: center">Ask Profe Linda about this class</a>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="padding: clamp(48px, 7vw, 90px) clamp(20px, 5vw, 64px); background: #23191A; color: #F6EFE7">
+    <div style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(28px, 4vw, 56px)">
+      <div>
+        <div style="font-size: 14px; color: #E9BEC3; margin-bottom: 16px">In your cart</div>
+        <h2 style="font-size: clamp(28px, 3.6vw, 44px); line-height: 1.02; letter-spacing: -0.05em; font-weight: 500; margin: 0 0 16px; color: #FBF6F0">{{ cartHeading }}</h2>
+        <p style="font-size: 16px; line-height: 1.65; font-weight: 300; color: #C9B8AF; margin: 0 0 24px">{{ cartNote }}</p>
+        <a href="mailto:profe@learnspanishfasthoy.com" style="display: inline-block; font-size: 14px; background: #F0D3D7; color: #23191A; padding: 17px 28px; border-radius: 999px" style-hover="background: #FFF6F2; color: #23191A">Checkout by email</a>
+      </div>
+      <div style="display: grid; gap: 10px; align-content: start">
+        <sc-for list="{{ cart }}" as="c" hint-placeholder-count="1">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid rgba(246,239,231,0.18); padding-bottom: 12px">
+            <span style="font-size: 16px; color: #FBF6F0">{{ c.name }}</span>
+            <span style="display: flex; align-items: center; gap: 14px">
+              <span style="font-size: 16px; color: #E8DBD2">{{ c.price }}</span>
+              <button type="button" onClick="{{ c.remove }}" style="border: 1px solid rgba(246,239,231,0.35); background: none; color: #C9B8AF; cursor: pointer; font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; padding: 7px 12px; border-radius: 999px" style-hover="border-color: #F0D3D7; color: #FFF6F2">Remove</button>
+            </span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="books" style="padding: clamp(48px, 7vw, 90px) clamp(20px, 5vw, 64px); background: #FBF6F0; border-top: 1px solid #E2D3C4; border-bottom: 1px solid #E2D3C4">
+    <div style="max-width: 1180px; margin: 0 auto">
+      <div style="font-size: 14px; color: #8C2F39; margin-bottom: 16px">Before the first class</div>
+      <h2 style="font-size: clamp(30px, 4vw, 48px); line-height: 1; letter-spacing: -0.05em; font-weight: 500; margin: 0 0 clamp(28px, 4vw, 44px); max-width: 24em">Two things to buy, and one thing not to do</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
+          <div style="background: #F6EFE7; border: 1px solid #E2D3C4; padding: 28px 24px">
+            <div style="font-size: 30px; font-weight: 500; letter-spacing: -0.05em; color: #8C2F39; margin-bottom: 14px">{{ s.n }}</div>
+            <h3 style="font-size: 21px; font-weight: 500; letter-spacing: -0.035em; margin: 0 0 12px">{{ s.title }}</h3>
+            <p style="font-size: 16px; line-height: 1.62; font-weight: 300; color: #4A3B37; margin: 0">{{ s.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <p style="font-size: 15px; line-height: 1.7; color: #6B5852; margin: 24px 0 0; max-width: 44em">Please buy the paperback rather than printing an ebook. Printing ebooks violates copyright, and the fine runs to $250,000. Gracias.</p>
+    </div>
+  </section>
+
+  <footer style="padding: clamp(36px, 5vw, 60px) clamp(20px, 5vw, 64px); background: #23191A; color: #C9B8AF">
+    <div style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; align-items: start">
+      <div>
+        <div style="font-size: 21px; font-weight: 600; letter-spacing: -0.035em; color: #FBF6F0">Learn Spanish Fast hoy</div>
+        <p style="font-size: 13px; color: #C9B8AF; margin: 12px 0 0; line-height: 1.8">Central Coast, California · Classes worldwide via Zoom</p>
+      </div>
+      <div style="display: grid; gap: 12px; font-size: 15px">
+        <a href="All%20Classes.dc.html" style="color: #C9B8AF" style-hover="color: #FFF6F2">All classes</a>
+        <a href="Know%20Your%20Spanish%20Level.dc.html" style="color: #C9B8AF" style-hover="color: #FFF6F2">Know your level</a>
+        <a href="About.dc.html" style="color: #C9B8AF" style-hover="color: #FFF6F2">About Profe Linda</a>
+      </div>
+      <div style="display: grid; gap: 12px; font-size: 15px">
+        <a href="mailto:profe@learnspanishfasthoy.com" style="color: #C9B8AF" style-hover="color: #FFF6F2">Email Profe Linda</a>
+        <a href="Learn%20Spanish%20Fast%20Hoy.dc.html#faq" style="color: #C9B8AF" style-hover="color: #FFF6F2">FAQ</a>
+      </div>
+      <div style="font-size: 13px; color: #C9B8AF; line-height: 1.8">© 2026 Learn Spanish Fast hoy. TPRS® is a registered method of TPRS Books.</div>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#8C2F39&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#8C2F39&quot;,&quot;#C2185B&quot;,&quot;#1B597C&quot;,&quot;#0F3D2E&quot;]}}">
+class Component extends DCLogic {
+  state = { menuOpen: false, cart: [] };
+
+  static BASE = "#8C2F39";
+
+  hexToRgb(h) {
+    const n = parseInt(h.replace("#", ""), 16);
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  }
+
+  mix(hex, towards, amount) {
+    const a = this.hexToRgb(hex), b = this.hexToRgb(towards);
+    return "#" + a.map((v, i) => Math.round(v + (b[i] - v) * amount).toString(16).padStart(2, "0")).join("");
+  }
+
+  applyAccent() {
+    const a = (this.props.accent ?? Component.BASE).toLowerCase();
+    const map = {
+      "#8c2f39": a,
+      "#f0d3d7": this.mix(a, "#ffffff", 0.8),
+      "#e9bec3": this.mix(a, "#ffffff", 0.68),
+      "#f6dcde": this.mix(a, "#ffffff", 0.85),
+      "#7a2a32": this.mix(a, "#000000", 0.12),
+      "#4a2226": this.mix(a, "#000000", 0.45),
+      "#2b1114": this.mix(a, "#000000", 0.7)
+    };
+    const rgb = this.hexToRgb(a).join(",");
+    const root = document.getElementById("dc-root") || document.body;
+    root.querySelectorAll("[style]").forEach(el => {
+      if (!el.dataset.accentBase) el.dataset.accentBase = el.getAttribute("style");
+      let css = el.dataset.accentBase;
+      for (const [from, to] of Object.entries(map)) {
+        css = css.split(from).join(to);
+        css = css.split(from.toUpperCase()).join(to);
+      }
+      el.setAttribute("style", css.split("rgba(140,47,57,").join("rgba(" + rgb + ","));
+    });
+  }
+
+  componentDidMount() { this.applyAccent(); }
+  componentDidUpdate() { this.applyAccent(); }
+
+  data() {
+    return [
+      { name: "Beginning I", step: "Level 01 · Start here", price: "$140", meets: "Tuesdays, 5:25 to 7:00pm", term: "Sep 22 to Nov 10", book: "Pobre Ana", homework: "About 1 hr/week",
+        blurb: "For true beginners, and for anyone who took Spanish at school but still can't speak it. You acquire the top 100+ verbs and words through storytelling, then read a short novel in small groups.",
+        ready: "You want everyday spoken Spanish and are happy to start from the beginning. Focus is on the present tense." },
+      { name: "Beginning II", step: "Level 02", price: "$140", meets: "Thursdays, 5:25 to 7:00pm", term: "Oct 21 to Dec 9", book: "Announced before term",
+        blurb: "Real language in real situations. From the first class you speak in the basic present and past tenses while reinforcing everything Beginning I gave you.", homework: "About 1 hr/week",
+        ready: "You can speak on familiar topics in the present with acceptable pronunciation. If you only studied Spanish at school, start at Beginning I." },
+      { name: "Intermediate Fall", step: "Level 03", price: "$140", meets: "Wednesdays, 5:25 to 7:00pm", term: "Sep 23 to Nov 11", book: "Pobre Ana Bailó Tango", homework: "About 1 hr/week",
+        blurb: "Review of the present indicative, then the past tense and a little of the subjunctive, all through stories rather than drills. Plenty of small-group talking.",
+        ready: "You understand most of what you hear in class and can hold a simple conversation without translating first." },
+      { name: "Intermediate Spring", step: "Level 04", price: "$140", meets: "Wednesdays, 5:25 to 7:00pm", term: "Feb 3 to Mar 24", book: "Announced before term", homework: "About 1 hr/week",
+        blurb: "The continuation of Intermediate Fall: longer stories, longer reading, and more time speaking about the past and the future.",
+        ready: "You finished Intermediate Fall, or you can already narrate a short story in the past tense." },
+      { name: "Intermediate-Advanced", step: "Level 05", price: "$140", meets: "Mondays, 5:25 to 7:00pm", term: "Sep 21 to Nov 9", book: "Announced before term", homework: "About 1 hr/week",
+        blurb: "Abstract ideas across multiple tenses, real novels, and group discussion where you hold your own. Storytelling and book club in one.",
+        ready: "You comprehend spoken Spanish easily and want conversation practice at pace, not more grammar." }
+    ];
+  }
+
+  renderVals() {
+    const cart = this.state.cart;
+    const total = cart.reduce((s, c) => s + c.amount, 0);
+    return {
+      menuOpen: this.state.menuOpen,
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      levels: this.data().map(l => ({
+        ...l,
+        cta: cart.some(c => c.name === l.name) ? "Added to cart" : "Add to cart",
+        add: () => this.setState(s => s.cart.some(c => c.name === l.name)
+          ? s
+          : ({ cart: [...s.cart, { name: l.name, price: l.price, amount: parseInt(l.price.replace("$", ""), 10) }] }))
+      })),
+      cart: cart.map((c, i) => ({
+        name: c.name,
+        price: c.price,
+        remove: () => this.setState(s => ({ cart: s.cart.filter((_, j) => j !== i) }))
+      })),
+      steps: [
+        { n: "1", title: "Order the paperback novel", body: "Buy the class novel from tprsbooks.com as soon as you register. Each class works through one short Spanish novel, which is where the highest-frequency phrases and the top 100+ vocabulary come from." },
+        { n: "2", title: "Pay $5 for the audiobook", body: "A one-year audiobook subscription costs $5 on the registration page. It covers almost every class novel, and it is what makes the read, read, read part of the homework easy." },
+        { n: "3", title: "Register the audiobook", body: "Register your subscription at TPRSBooks and you get their whole library, in any language, with nothing to download. Choose your own password and write it down: Profe Linda cannot recover lost passwords." }
+      ],
+      cartHeading: cart.length ? "Total $" + total + " for " + cart.length + (cart.length === 1 ? " class" : " classes") : "Your cart is empty",
+      cartNote: cart.length
+        ? "Payment is handled by email for now: send Profe Linda your class choice and she'll reply with the payment link, your curriculum and the Zoom code the weekend before class starts."
+        : "Add a class above and it will appear here. Books and the $5 audiobook subscription are bought separately, in the two steps below."
+    };
+  }
+}
+</script>
+</body>
+</html>

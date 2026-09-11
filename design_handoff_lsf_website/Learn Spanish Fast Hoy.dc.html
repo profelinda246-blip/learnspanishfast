@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #F6EFE7; color: #23191A; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: #8C2F39; text-decoration: none; }
+  a:hover { color: #23191A; }
+  @keyframes lsfRise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+</style>
+</helmet>
+<div style="font-family: 'Bricolage Grotesque', 'Helvetica Neue', Helvetica, sans-serif; background: #F6EFE7; color: #23191A; overflow-x: hidden">
+
+  <header style="display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 22px clamp(20px, 5vw, 64px); border-bottom: 1px solid #E2D3C4; position: relative; z-index: 30">
+    <a href="#top" style="display: flex; flex-direction: column; line-height: 1; color: #23191A">
+      <span style="font-size: 23px; font-weight: 600; letter-spacing: -0.035em">Learn Spanish Fast</span>
+      <span style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; font-weight: 400; color: #8C2F39; margin-top: 8px">hoy · con Profe Linda</span>
+    </a>
+    <nav style="display: flex; align-items: center; gap: clamp(12px, 2.2vw, 26px); flex-wrap: wrap; font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 15px">
+      <div style="position: relative" onMouseEnter="{{ openMenu }}" onMouseLeave="{{ closeMenu }}">
+        <a href="All%20Classes.dc.html" style="color: #5C4A46" style-hover="color: #23191A">Courses</a>
+        <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position: absolute; top: calc(100% + 14px); left: -16px; min-width: 250px; background: #FBF6F0; border: 1px solid #E2D3C4; padding: 8px; display: grid; gap: 1px; box-shadow: 0 18px 40px rgba(35,25,26,0.1)">
+            <a href="All%20Classes.dc.html" style="display: block; padding: 11px 14px; color: #23191A; font-size: 15px; font-weight: 500" style-hover="background: #F0D3D7; color: #23191A">All classes</a>
+            <sc-for list="{{ levelNames }}" as="l" hint-placeholder-count="5">
+              <a href="All%20Classes.dc.html" style="display: block; padding: 11px 14px; color: #4A3B37; font-size: 15px" style-hover="background: #F0D3D7; color: #23191A">{{ l }}</a>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+      <a href="#method" style="color: #5C4A46" style-hover="color: #23191A">Method</a>
+      <a href="Know%20Your%20Spanish%20Level.dc.html" style="color: #5C4A46" style-hover="color: #23191A">Your level</a>
+      <a href="About.dc.html" style="color: #5C4A46" style-hover="color: #23191A">Profe Linda</a>
+      <a href="#voices" style="color: #5C4A46" style-hover="color: #23191A">Students</a>
+      <a href="#faq" style="color: #5C4A46" style-hover="color: #23191A">FAQ</a>
+      <a href="#register" style="background: #8C2F39; color: #FFF6F2; padding: 12px 20px; border-radius: 999px" style-hover="background: #23191A; color: #FFF6F2">Register</a>
+    </nav>
+  </header>
+
+  <section id="top" style="position: relative; padding: clamp(48px, 8vw, 104px) clamp(20px, 5vw, 64px) clamp(56px, 7vw, 96px); background: linear-gradient(180deg, #FBF6F0 0%, #F6EFE7 100%)">
+    <div style="position: absolute; inset: 0; opacity: 0.5; pointer-events: none; background-image: radial-gradient(#E0CFC0 1px, transparent 1px); background-size: 22px 22px"></div>
+    <div style="position: relative; max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(32px, 5vw, 72px); align-items: center">
+      <div style="animation: lsfRise 700ms ease both">
+        <div style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #8C2F39; margin-bottom: 24px; line-height: 1.8">TPRS® method · live on Zoom · small groups</div>
+        <h1 style="font-size: clamp(42px, 6.2vw, 80px); line-height: 0.98; letter-spacing: -0.05em; font-weight: 500; margin: 0 0 26px">Learn to <em style="font-style: normal; color: #8C2F39">speak</em> Spanish, not to study it.</h1>
+        <p style="font-size: clamp(17px, 1.5vw, 20px); line-height: 1.55; font-weight: 300; color: #4A3B37; max-width: 34em; margin: 0 0 34px">No textbooks, no grammar drills, no quizzes. You acquire Spanish the way you acquired your first language: through stories, reading and a great deal of laughing. Twenty-five years of teaching say it works.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 40px">
+          <a href="#courses" style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; background: #8C2F39; color: #FFF6F2; padding: 18px 28px; border-radius: 999px" style-hover="background: #23191A; color: #FFF6F2">Find your level</a>
+          <a href="#method" style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #23191A; padding: 18px 28px; border-radius: 999px; border: 1px solid #D6C2B2" style-hover="border-color: #23191A; color: #23191A">What is TPRS?</a>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: clamp(20px, 4vw, 48px); padding-top: 28px; border-top: 1px solid #E2D3C4">
+          <div><div style="font-size: 30px; font-weight: 500; letter-spacing: -0.04em">25 yrs</div><div style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #6B5852; margin-top: 8px">Teaching TPRS®</div></div>
+          <div><div style="font-size: 30px; font-weight: 500; letter-spacing: -0.04em">4 levels</div><div style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #6B5852; margin-top: 8px">Beginning I → Advanced</div></div>
+          <div><div style="font-size: 30px; font-weight: 500; letter-spacing: -0.04em">100%</div><div style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #6B5852; margin-top: 8px">Comprehensible input</div></div>
+        </div>
+      </div>
+      <div style="position: relative">
+        <div style="position: absolute; left: -18px; top: -18px; right: 30px; bottom: 30px; background: #F0D3D7; border-radius: 4px"></div>
+        <div style="position: relative; aspect-ratio: 4 / 5; border: 1px solid #DCC8B8; background-color: #EFE4D8; background-image: repeating-linear-gradient(135deg, rgba(140,47,57,0.07) 0 2px, transparent 2px 11px); display: flex; align-items: flex-end; padding: 22px">
+          <span style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #6B5852; background: #F6EFE7; padding: 9px 12px; line-height: 1.7">Photo: Profe Linda mid-story, class laughing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="courses" style="padding: clamp(56px, 8vw, 110px) clamp(20px, 5vw, 64px); background: #FBF6F0; border-top: 1px solid #E2D3C4; border-bottom: 1px solid #E2D3C4">
+    <div style="max-width: 1180px; margin: 0 auto">
+      <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: clamp(36px, 5vw, 60px)">
+        <div>
+          <div style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #8C2F39; margin-bottom: 18px">Four levels, one path</div>
+          <h2 style="font-size: clamp(32px, 4.2vw, 52px); line-height: 1.02; letter-spacing: -0.045em; font-weight: 500; margin: 0; max-width: 22em">Start where you actually are, not where a textbook says you should be.</h2>
+        </div>
+        <p style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; line-height: 2; color: #6B5852; max-width: 26em; margin: 0">Weekly 90-minute class on Zoom. Recorded for later viewing. Beginners are encouraged to take I &amp; II back to back.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px">
+        <sc-for list="{{ courses }}" as="c" hint-placeholder-count="4">
+          <article style="display: flex; flex-direction: column; background: #F6EFE7; border: 1px solid #E2D3C4; padding: 26px 24px 24px" style-hover="border-color: #23191A">
+            <div style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #8C2F39; margin-bottom: 16px">{{ c.tag }}</div>
+            <h3 style="font-size: 26px; font-weight: 500; letter-spacing: -0.04em; margin: 0 0 18px">{{ c.name }}</h3>
+            <div style="aspect-ratio: 3 / 2; border: 1px solid #DCC8B8; background-color: #EFE4D8; background-image: repeating-linear-gradient(135deg, rgba(140,47,57,0.07) 0 2px, transparent 2px 11px); display: flex; align-items: flex-end; padding: 12px; margin-bottom: 20px">
+              <span style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #6B5852; background: #F6EFE7; padding: 6px 8px">Novel cover: {{ c.name }}</span>
+            </div>
+            <p style="font-size: 16px; line-height: 1.6; font-weight: 300; color: #4A3B37; margin: 0 0 24px; flex: 1">{{ c.blurb }}</p>
+            <a href="All%20Classes.dc.html" style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 14px; border-top: 1px solid #E2D3C4; padding-top: 18px; color: #8C2F39" style-hover="color: #23191A">Course description →</a>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="profe" style="padding: clamp(56px, 8vw, 110px) clamp(20px, 5vw, 64px)">
+    <div style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(32px, 5vw, 72px); align-items: start">
+      <div style="display: grid; gap: 16px">
+        <div style="aspect-ratio: 1 / 1; border: 1px solid #DCC8B8; background-color: #EFE4D8; background-image: repeating-linear-gradient(135deg, rgba(140,47,57,0.07) 0 2px, transparent 2px 11px); display: flex; align-items: flex-end; padding: 18px">
+          <span style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #6B5852; background: #F6EFE7; padding: 8px 10px">Portrait: Profe Linda Ward</span>
+        </div>
+        <div style="background: #F0D3D7; padding: 26px 24px">
+          <p style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; line-height: 2; color: #5A2A30; margin: 0">Instructor &amp; owner, Learn Spanish Fast hoy. Non-native bilingual, learned Spanish in Spain, teaches on California's Central Coast, and has been teaching Spanish through stories for 25 years.</p>
+        </div>
+      </div>
+      <div>
+        <div style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #8C2F39; margin-bottom: 18px">Conoce a tu profe</div>
+        <h2 style="font-size: clamp(32px, 4.2vw, 52px); line-height: 1; letter-spacing: -0.05em; font-weight: 500; margin: 0 0 28px">Meet Linda Ward</h2>
+        <p style="font-size: clamp(17px, 1.4vw, 19px); line-height: 1.6; font-weight: 300; color: #4A3B37; margin: 0 0 20px">Because I speak Spanish I have double the friends, double the travel and double the fun, and I can express myself in two languages, with all their nuances. You can too.</p>
+        <p style="font-size: 16px; line-height: 1.68; font-weight: 300; color: #4A3B37; margin: 0 0 20px">I'm a right-brained learner, so learning Spanish the old-fashioned grammar way was a real stretch for me. I empathise with my students as they acquire the language, and they tell me that makes the difference. In my classes I get to teach culture, art, history, music and economics, all of it in Spanish.</p>
+        <p style="font-size: 16px; line-height: 1.68; font-weight: 300; color: #4A3B37; margin: 0 0 32px">Spanish is the second most spoken language in the world: 35 million speakers across 22 countries, and plenty of them right where you live. Everyone can learn a second language. It's good for the brain, it wards off senility, and it is genuinely fun.</p>
+        <blockquote style="margin: 0; border-left: 2px solid #8C2F39; padding-left: 24px">
+          <p style="font-size: 21px; line-height: 1.38; letter-spacing: -0.025em; color: #23191A; margin: 0 0 14px">After 25 years of teaching the communicative way, I pitched it overboard. I use TPRS® exclusively now, because the results are not comparable.</p>
+          <cite style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #6B5852; font-style: normal">Profe Linda</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section id="method" style="padding: clamp(56px, 8vw, 110px) clamp(20px, 5vw, 64px); background: #23191A; color: #F6EFE7">
+    <div style="max-width: 1180px; margin: 0 auto">
+      <div style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #E9BEC3; margin-bottom: 20px">The method</div>
+      <h2 style="font-size: clamp(32px, 4.4vw, 56px); line-height: 1; letter-spacing: -0.05em; font-weight: 500; margin: 0 0 clamp(36px, 5vw, 56px); max-width: 24em; color: #FBF6F0">Teaching Proficiency through Reading &amp; Storytelling</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(32px, 5vw, 64px); align-items: start">
+        <div>
+          <p style="font-size: clamp(17px, 1.4vw, 19px); line-height: 1.62; font-weight: 300; color: #E8DBD2; margin: 0 0 20px">TPRS® is a brain-friendly method built on highly interactive stories, developed by my mentor <a href="https://www.tprsbooks.com/secondary-language-teaching-using-tprs-method/" target="_blank" rel="noopener" style="color: #F0D3D7; border-bottom: 1px solid rgba(240,211,215,0.4)">Blaine Ray</a>. Every minute of class is comprehensible: you understand what you hear, so your brain acquires it instead of memorising it.</p>
+          <p style="font-size: 16px; line-height: 1.68; font-weight: 300; color: #C9B8AF; margin: 0 0 28px">It is not your high school or college Spanish class. Students end up speaking without translating in their heads first, and no textbook is required.</p>
+          <blockquote style="margin: 0; background: rgba(240,211,215,0.08); border: 1px solid rgba(240,211,215,0.22); padding: 26px 24px">
+            <p style="font-size: 20px; line-height: 1.35; letter-spacing: -0.025em; margin: 0 0 14px; color: #FBF6F0">TPRS® works much better than anything out there.</p>
+            <cite style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #E9BEC3; font-style: normal; line-height: 1.8">Dr. Stephen Krashen, language acquisition researcher</cite>
+          </blockquote>
+        </div>
+        <div style="display: grid; gap: 14px">
+          <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="4">
+            <div style="display: flex; gap: 18px; align-items: baseline; border-bottom: 1px solid rgba(246,239,231,0.16); padding-bottom: 16px">
+              <span style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #E9BEC3; flex: none">{{ p.n }}</span>
+              <div>
+                <h3 style="font-size: 21px; font-weight: 500; letter-spacing: -0.035em; margin: 0 0 8px; color: #FBF6F0">{{ p.title }}</h3>
+                <p style="font-size: 15px; line-height: 1.6; font-weight: 300; color: #C9B8AF; margin: 0">{{ p.body }}</p>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="voices" style="padding: clamp(56px, 8vw, 110px) clamp(20px, 5vw, 64px); background: #FBF6F0; border-bottom: 1px solid #E2D3C4">
+    <div style="max-width: 1180px; margin: 0 auto">
+      <div style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #8C2F39; margin-bottom: 18px">In their words</div>
+      <h2 style="font-size: clamp(32px, 4.2vw, 52px); line-height: 1; letter-spacing: -0.05em; font-weight: 500; margin: 0 0 clamp(36px, 5vw, 56px); max-width: 20em">What students say</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px">
+        <sc-for list="{{ quotes }}" as="q" hint-placeholder-count="3">
+          <figure style="margin: 0; background: #F6EFE7; border: 1px solid #E2D3C4; padding: 30px 26px; display: flex; flex-direction: column">
+            <blockquote style="margin: 0 0 22px; font-size: 17px; line-height: 1.55; font-weight: 300; color: #332623; flex: 1">{{ q.text }}</blockquote>
+            <figcaption style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #8C2F39; border-top: 1px solid #E2D3C4; padding-top: 18px">{{ q.who }}</figcaption>
+          </figure>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: clamp(56px, 8vw, 110px) clamp(20px, 5vw, 64px)">
+    <div style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(32px, 5vw, 72px)">
+      <div>
+        <div style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #8C2F39; margin-bottom: 18px">A good fit</div>
+        <h2 style="font-size: clamp(32px, 4.2vw, 50px); line-height: 1; letter-spacing: -0.05em; font-weight: 500; margin: 0 0 20px">This is for you if…</h2>
+        <p style="font-size: 16px; line-height: 1.68; font-weight: 300; color: #4A3B37; margin: 0">Classes are virtual, so you can learn Spanish from anywhere: one weekly session plus a little reading between classes.</p>
+      </div>
+      <ul style="list-style: none; margin: 0; padding: 0; display: grid; gap: 2px">
+        <sc-for list="{{ fits }}" as="f" hint-placeholder-count="6">
+          <li style="display: flex; gap: 16px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid #E2D3C4; font-size: clamp(16px, 1.3vw, 18px); line-height: 1.5; font-weight: 300; color: #332623">
+            <span style="width: 7px; height: 7px; background: #8C2F39; border-radius: 50%; flex: none; transform: translateY(-3px)"></span>
+            <span>{{ f }}</span>
+          </li>
+        </sc-for>
+      </ul>
+    </div>
+  </section>
+
+  <section style="padding: 0 clamp(20px, 5vw, 64px) clamp(56px, 8vw, 100px)">
+    <div style="max-width: 1180px; margin: 0 auto">
+      <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 24px">
+        <h2 style="font-size: clamp(26px, 3vw, 38px); font-weight: 500; letter-spacing: -0.045em; margin: 0">La clase, en fotos</h2>
+        <span style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #6B5852">Zoom classes and student meet-ups</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px">
+        <sc-for list="{{ photos }}" as="ph" hint-placeholder-count="4">
+          <div style="aspect-ratio: 1 / 1; border: 1px solid #DCC8B8; background-color: #EFE4D8; background-image: repeating-linear-gradient(135deg, rgba(140,47,57,0.07) 0 2px, transparent 2px 11px); display: flex; align-items: flex-end; padding: 14px">
+            <span style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #6B5852; background: #F6EFE7; padding: 6px 9px; line-height: 1.7">{{ ph }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="faq" style="padding: clamp(56px, 8vw, 100px) clamp(20px, 5vw, 64px); background: #FBF6F0; border-top: 1px solid #E2D3C4">
+    <div style="max-width: 880px; margin: 0 auto">
+      <div style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #8C2F39; margin-bottom: 18px">Before you register</div>
+      <h2 style="font-size: clamp(32px, 4.2vw, 50px); line-height: 1; letter-spacing: -0.05em; font-weight: 500; margin: 0 0 clamp(28px, 4vw, 44px)">Frequently asked questions</h2>
+      <div style="border-top: 1px solid #E2D3C4">
+        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="6">
+          <div style="border-bottom: 1px solid #E2D3C4">
+            <button type="button" onClick="{{ f.toggle }}" style="width: 100%; display: flex; gap: 20px; align-items: baseline; justify-content: space-between; background: none; border: 0; padding: 26px 4px; cursor: pointer; text-align: left; font-family: 'Bricolage Grotesque', Helvetica, sans-serif; color: #23191A" style-hover="color: #23191A">
+              <span style="font-size: clamp(17px, 1.6vw, 21px); line-height: 1.3; font-weight: 500; letter-spacing: -0.03em">{{ f.q }}</span>
+              <span style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 16px; color: #8C2F39; flex: none; line-height: 1">{{ f.sign }}</span>
+            </button>
+            <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+              <div style="padding: 0 40px 30px 4px; font-size: 16px; line-height: 1.68; font-weight: 300; color: #4A3B37; max-width: 42em">{{ f.a }}</div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="register" style="padding: clamp(64px, 9vw, 120px) clamp(20px, 5vw, 64px); background: #8C2F39; color: #FFF6F2; text-align: center">
+    <div style="max-width: 760px; margin: 0 auto">
+      <div style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #F0D3D7; margin-bottom: 22px">Enrolment is open</div>
+      <h2 style="font-size: clamp(36px, 5.2vw, 64px); line-height: 0.98; letter-spacing: -0.055em; font-weight: 500; margin: 0 0 22px; color: #FFF6F2">Empieza hoy.</h2>
+      <p style="font-size: clamp(17px, 1.5vw, 20px); line-height: 1.55; font-weight: 300; color: #F6DCDE; margin: 0 0 36px">Tell me a little about where you are with Spanish and I'll point you to the right level, or you can take the placement quiz if you'd rather find out yourself.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center">
+        <a href="mailto:profe@learnspanishfasthoy.com" style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; background: #FFF6F2; color: #8C2F39; padding: 18px 30px; border-radius: 999px" style-hover="background: #EDE3DA; color: #23191A">Register for a class</a>
+        <a href="#courses" style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #FFF6F2; padding: 18px 30px; border-radius: 999px; border: 1px solid rgba(255,246,242,0.45)" style-hover="border-color: #FFF6F2; background: rgba(255,246,242,0.1); color: #FFF6F2">Know your Spanish level</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding: clamp(40px, 6vw, 64px) clamp(20px, 5vw, 64px); background: #23191A; color: #C9B8AF">
+    <div style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; align-items: start">
+      <div>
+        <div style="font-size: 21px; font-weight: 600; letter-spacing: -0.035em; color: #FBF6F0">Learn Spanish Fast hoy</div>
+        <p style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #C9B8AF; margin: 12px 0 0; line-height: 1.9">Central Coast, California · Classes worldwide via Zoom</p>
+      </div>
+      <div style="display: grid; gap: 12px; font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px">
+        <a href="#courses" style="color: #C9B8AF" style-hover="color: #FFF6F2">All classes</a>
+        <a href="#method" style="color: #C9B8AF" style-hover="color: #FFF6F2">The TPRS method</a>
+        <a href="#faq" style="color: #C9B8AF" style-hover="color: #FFF6F2">FAQ</a>
+      </div>
+      <div style="display: grid; gap: 12px; font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px">
+        <a href="mailto:profe@learnspanishfasthoy.com" style="color: #C9B8AF" style-hover="color: #FFF6F2">Email Profe Linda</a>
+        <a href="#register" style="color: #C9B8AF" style-hover="color: #FFF6F2">Register</a>
+      </div>
+      <div style="font-family: 'Bricolage Grotesque', Helvetica, sans-serif; font-size: 13px; color: #C9B8AF; line-height: 1.9">© 2026 Learn Spanish Fast hoy. TPRS® is a registered method of TPRS Books.</div>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#8C2F39&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#8C2F39&quot;,&quot;#C2185B&quot;,&quot;#1B597C&quot;,&quot;#0F3D2E&quot;]}}">
+class Component extends DCLogic {
+  state = { open: 0, menuOpen: false };
+
+  // --- accent theming -------------------------------------------------
+  // The design paints from inline literals so it streams instantly; the
+  // accent prop is then applied over the top of those literals on mount.
+  static BASE = "#8C2F39";
+
+  hexToRgb(h) {
+    const n = parseInt(h.replace("#", ""), 16);
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  }
+
+  mix(hex, towards, amount) {
+    const a = this.hexToRgb(hex), b = this.hexToRgb(towards);
+    const c = a.map((v, i) => Math.round(v + (b[i] - v) * amount));
+    return "#" + c.map(v => v.toString(16).padStart(2, "0")).join("");
+  }
+
+  accentMap() {
+    const a = (this.props.accent ?? Component.BASE).toLowerCase();
+    return {
+      "#8c2f39": a,
+      "#f0d3d7": this.mix(a, "#ffffff", 0.8),
+      "#e9bec3": this.mix(a, "#ffffff", 0.68),
+      "#f6dcde": this.mix(a, "#ffffff", 0.85),
+      "#7a2a32": this.mix(a, "#000000", 0.12),
+      "#5a2a30": this.mix(a, "#000000", 0.35),
+      "#4a2226": this.mix(a, "#000000", 0.45),
+      "#2b1114": this.mix(a, "#000000", 0.7)
+    };
+  }
+
+  applyAccent() {
+    const root = document.getElementById("dc-root") || document.body;
+    const map = this.accentMap();
+    const rgb = this.hexToRgb(map["#8c2f39"]).join(",");
+    root.querySelectorAll("[style]").forEach(el => {
+      if (!el.dataset.accentBase) el.dataset.accentBase = el.getAttribute("style");
+      let css = el.dataset.accentBase;
+      for (const [from, to] of Object.entries(map)) {
+        css = css.split(from).join(to);
+        css = css.split(from.toUpperCase()).join(to);
+      }
+      css = css.split("rgba(140,47,57,").join("rgba(" + rgb + ",");
+      el.setAttribute("style", css);
+    });
+  }
+
+  componentDidMount() { this.applyAccent(); }
+  componentDidUpdate() { this.applyAccent(); }
+
+  renderVals() {
+    const accent = this.props.accent ?? Component.BASE;
+    const faqData = [
+      { q: "Are both the paperback and audio books required?", a: "Yes. Order the paperback as soon as you can, each class works through a short Spanish novel that teaches the highest-frequency phrases and top 100+ vocabulary. Then pay for and register the audio book on the registration page. Please don't print ebooks; copyright violations carry a $250,000 fine. Gracias." },
+      { q: "Do I need to print the curriculum?", a: "Yes, printed curriculum in hand makes the weekly class much easier to follow." },
+      { q: "How are classes delivered?", a: "All classes are remote via Zoom. You'll receive the Zoom link by email no later than the week before classes start." },
+      { q: "What if I need to miss a class?", a: "Every class is recorded and posted to Google Classroom, so you'll need a Google account. That said, weekly attendance matters: lessons are sequenced so each one sets up the next." },
+      { q: "How do I access the audio book?", a: "Two steps: pay $5 for the audio book on the registration page, then register your book at TPRSBooks.org using the link emailed to you." },
+      { q: "What is the photo policy?", a: "By registering you agree that photos taken in class or on Zoom may be used to publicise LSF activities. If you'd rather not appear, just email Profe Linda before class starts." }
+    ];
+    return {
+      accent,
+      levelNames: ["Beginning I", "Beginning II", "Intermediate Fall", "Intermediate Spring", "Intermediate-Advanced"],
+      menuOpen: this.state.menuOpen,
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      courses: [
+        { tag: "Level 01 · Start here", name: "Beginning I", blurb: "Basic oral fluency in the present tense, built from comprehensible Spanish rather than grammar exercises, and a lot of fun while you get there." },
+        { tag: "Level 02", name: "Beginning II", blurb: "Longer, more complex sentences and real comprehension of spoken Spanish, the point where you stop translating in your head." },
+        { tag: "Level 03", name: "Intermediate Fall", blurb: "The present indicative reviewed, then the past tense and a little subjunctive, all through stories and small-group talking." },
+        { tag: "Level 04", name: "Intermediate Spring", blurb: "The continuation of Intermediate Fall: longer stories, longer reading, and more time speaking about the past and the future." },
+        { tag: "Level 05", name: "Intermediate-Advanced", blurb: "Abstract ideas across multiple tenses, real novels, and holding your own in group discussion. A long way in a short time." }
+      ],
+      pillars: [
+        { n: "01", title: "Stories, not exercises", body: "Class is built around highly interactive stories you help invent, so the language arrives attached to meaning." },
+        { n: "02", title: "100% comprehensible", body: "You always understand what you're hearing. Nothing is thrown at you before you're ready for it." },
+        { n: "03", title: "Reading that sticks", body: "A short Spanish novel per level teaches the highest-frequency vocabulary in context, not in lists." },
+        { n: "04", title: "No textbook, no grades", body: "No quizzes and no GPA pressure, motivation comes from actually being able to say things." }
+      ],
+      quotes: [
+        { text: "You have helped me so much in my Spanish journey. I'm very excited to live in Quito this year to continue my Spanish, and hope to serve in the Peace Corps in Latin America afterwards. None of it would be possible without your support. Estoy agradecido.", who: "JR, San Luis Obispo" },
+        { text: "This course far exceeded my expectations. I'd had boring grammar-textbook Spanish classes before and didn't know one could have so much fun acquiring Spanish. You can't study a language like you study biology, you acquire it through reading and stories.", who: "Justin, Sacramento" },
+        { text: "I was concerned about taking the class over Zoom, thinking it couldn't possibly be as good as in person. I was wrong. As a former teacher myself, I know how many hours went into making it this outstanding and this comprehensible.", who: "Meg, SF Bay Area" }
+      ],
+      fits: [
+        "You genuinely want to speak Spanish, in a fun and interactive setting",
+        "You've tried apps or grammar classes and still can't hold a conversation",
+        "You have no interest in sitting through grammar exercises",
+        "You're about to travel to a Spanish-speaking country",
+        "Your schedule is full and you need something flexible",
+        "You can join one weekly Zoom class and do a little reading between sessions"
+      ],
+      photos: [
+        "Photo: Zoom class in full story mode",
+        "Photo: A story unfolding on the whiteboard",
+        "Photo: Students at a Central Coast meet-up",
+        "Photo: Class novels and curriculum on a table"
+      ],
+      faqs: faqData.map((f, i) => ({
+        q: f.q,
+        a: f.a,
+        open: this.state.open === i,
+        sign: this.state.open === i ? "−" : "+",
+        toggle: () => this.setState(s => ({ open: s.open === i ? -1 : i }))
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

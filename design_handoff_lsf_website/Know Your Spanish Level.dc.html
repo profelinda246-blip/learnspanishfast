@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #F6EFE7; color: #23191A; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: #8C2F39; text-decoration: none; }
+  a:hover { color: #23191A; }
+</style>
+</helmet>
+<div style="font-family: 'Bricolage Grotesque', 'Helvetica Neue', Helvetica, sans-serif; background: #F6EFE7; color: #23191A; overflow-x: hidden">
+
+  <header style="display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 22px clamp(20px, 5vw, 64px); border-bottom: 1px solid #E2D3C4; position: relative; z-index: 30">
+    <a href="Learn%20Spanish%20Fast%20Hoy.dc.html" style="display: flex; flex-direction: column; line-height: 1; color: #23191A">
+      <span style="font-size: 23px; font-weight: 600; letter-spacing: -0.035em">Learn Spanish Fast</span>
+      <span style="font-size: 13px; color: #8C2F39; margin-top: 7px">hoy · con Profe Linda</span>
+    </a>
+    <nav style="display: flex; align-items: center; gap: clamp(14px, 2.4vw, 28px); flex-wrap: wrap; font-size: 15px">
+      <div style="position: relative" onMouseEnter="{{ openMenu }}" onMouseLeave="{{ closeMenu }}">
+        <a href="All%20Classes.dc.html" style="color: #5C4A46" style-hover="color: #23191A">Courses</a>
+        <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position: absolute; top: calc(100% + 14px); left: -16px; min-width: 250px; background: #FBF6F0; border: 1px solid #E2D3C4; padding: 8px; display: grid; gap: 1px; box-shadow: 0 18px 40px rgba(35,25,26,0.1)">
+            <sc-for list="{{ levelNames }}" as="l" hint-placeholder-count="5">
+              <a href="All%20Classes.dc.html" style="display: block; padding: 11px 14px; color: #4A3B37; font-size: 15px" style-hover="background: #F0D3D7; color: #23191A">{{ l }}</a>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+      <a href="Know%20Your%20Spanish%20Level.dc.html" style="color: #8C2F39; font-weight: 500">Your level</a>
+      <a href="About.dc.html" style="color: #5C4A46" style-hover="color: #23191A">About</a>
+      <a href="Learn%20Spanish%20Fast%20Hoy.dc.html#faq" style="color: #5C4A46" style-hover="color: #23191A">FAQ</a>
+      <a href="mailto:profe@learnspanishfasthoy.com" style="background: #8C2F39; color: #FFF6F2; padding: 12px 20px; border-radius: 999px; font-size: 14px" style-hover="background: #23191A; color: #FFF6F2">Register</a>
+    </nav>
+  </header>
+
+  <section style="padding: clamp(44px, 6vw, 84px) clamp(20px, 5vw, 64px) clamp(30px, 4vw, 48px); background: linear-gradient(180deg, #FBF6F0 0%, #F6EFE7 100%)">
+    <div style="max-width: 760px; margin: 0 auto">
+      <div style="font-size: 14px; color: #8C2F39; margin-bottom: 18px">Placement, the honest way</div>
+      <h1 style="font-size: clamp(38px, 5.4vw, 70px); line-height: 0.98; letter-spacing: -0.05em; font-weight: 500; margin: 0 0 22px">Know your Spanish level</h1>
+      <p style="font-size: clamp(17px, 1.5vw, 20px); line-height: 1.55; font-weight: 300; color: #4A3B37; margin: 0">Tick everything you can already do <em style="font-style: normal; font-weight: 500">out loud</em>, without translating in your head first. Choose the level at which you can speak, not the level at which you can understand. Nothing here is graded and nobody sees your answers.</p>
+    </div>
+  </section>
+
+  <section style="padding: 0 clamp(20px, 5vw, 64px) clamp(48px, 7vw, 88px)">
+    <div style="max-width: 760px; margin: 0 auto">
+      <div style="border-top: 1px solid #E2D3C4">
+        <sc-for list="{{ checks }}" as="c" hint-placeholder-count="6">
+          <button type="button" onClick="{{ c.toggle }}" style="width: 100%; display: flex; gap: 18px; align-items: flex-start; text-align: left; background: none; border: 0; border-bottom: 1px solid #E2D3C4; padding: 22px 4px; cursor: pointer; font-family: 'Bricolage Grotesque', Helvetica, sans-serif; color: #23191A" style-hover="background: #FBF6F0">
+            <span style="flex: none; width: 26px; height: 26px; border-radius: 50%; border: 1px solid #C9B0A0; background: {{ c.dotBg }}; color: #FFF6F2; display: flex; align-items: center; justify-content: center; font-size: 14px; margin-top: 2px">{{ c.mark }}</span>
+            <span>
+              <span style="display: block; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.4; font-weight: 500; letter-spacing: -0.025em">{{ c.title }}</span>
+              <span style="display: block; font-size: 15px; line-height: 1.6; font-weight: 300; color: #6B5852; margin-top: 6px">{{ c.example }}</span>
+            </span>
+          </button>
+        </sc-for>
+      </div>
+
+      <div style="margin-top: 30px; background: #F0D3D7; padding: clamp(26px, 4vw, 40px)">
+        <div style="font-size: 14px; color: #7A2A32; margin-bottom: 14px">{{ resultKicker }}</div>
+        <h2 style="font-size: clamp(28px, 3.6vw, 44px); line-height: 1.02; letter-spacing: -0.05em; font-weight: 500; margin: 0 0 14px; color: #2B1114">{{ resultLevel }}</h2>
+        <p style="font-size: 17px; line-height: 1.6; font-weight: 300; color: #4A2226; margin: 0 0 26px; max-width: 40em">{{ resultBody }}</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px">
+          <a href="All%20Classes.dc.html" style="font-size: 14px; background: #8C2F39; color: #FFF6F2; padding: 17px 28px; border-radius: 999px" style-hover="background: #23191A; color: #FFF6F2">{{ resultCta }}</a>
+          <button type="button" onClick="{{ reset }}" style="font-size: 14px; font-family: 'Bricolage Grotesque', Helvetica, sans-serif; background: none; color: #23191A; padding: 17px 28px; border-radius: 999px; border: 1px solid rgba(43,17,20,0.3); cursor: pointer" style-hover="border-color: #23191A">Start again</button>
+        </div>
+      </div>
+
+      <p style="font-size: 15px; line-height: 1.7; color: #6B5852; margin: 22px 0 0">Still unsure, or between two levels? Email Profe Linda and describe the last Spanish class you took. She would rather place you by conversation than by checklist.</p>
+    </div>
+  </section>
+
+  <section style="padding: clamp(44px, 6vw, 86px) clamp(20px, 5vw, 64px); background: #FBF6F0; border-top: 1px solid #E2D3C4">
+    <div style="max-width: 1180px; margin: 0 auto">
+      <div style="font-size: 14px; color: #8C2F39; margin-bottom: 16px">The five levels</div>
+      <h2 style="font-size: clamp(28px, 3.6vw, 44px); line-height: 1.02; letter-spacing: -0.05em; font-weight: 500; margin: 0 0 clamp(26px, 4vw, 40px); max-width: 22em">What each class expects of you on day one</h2>
+      <div style="display: grid; gap: 2px">
+        <sc-for list="{{ ladder }}" as="l" hint-placeholder-count="5">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; align-items: baseline; border-bottom: 1px solid #E2D3C4; padding: 20px 0">
+            <div style="display: flex; gap: 14px; align-items: baseline">
+              <span style="font-size: 14px; color: #8C2F39; flex: none">{{ l.n }}</span>
+              <h3 style="font-size: 22px; font-weight: 500; letter-spacing: -0.035em; margin: 0">{{ l.name }}</h3>
+            </div>
+            <p style="font-size: 16px; line-height: 1.6; font-weight: 300; color: #4A3B37; margin: 0; grid-column: span 2">{{ l.expects }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding: clamp(36px, 5vw, 60px) clamp(20px, 5vw, 64px); background: #23191A; color: #C9B8AF">
+    <div style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; align-items: start">
+      <div>
+        <div style="font-size: 21px; font-weight: 600; letter-spacing: -0.035em; color: #FBF6F0">Learn Spanish Fast hoy</div>
+        <p style="font-size: 13px; color: #C9B8AF; margin: 12px 0 0; line-height: 1.8">Central Coast, California · Classes worldwide via Zoom</p>
+      </div>
+      <div style="display: grid; gap: 12px; font-size: 15px">
+        <a href="All%20Classes.dc.html" style="color: #C9B8AF" style-hover="color: #FFF6F2">All classes</a>
+        <a href="About.dc.html" style="color: #C9B8AF" style-hover="color: #FFF6F2">About Profe Linda</a>
+        <a href="Learn%20Spanish%20Fast%20Hoy.dc.html" style="color: #C9B8AF" style-hover="color: #FFF6F2">Home</a>
+      </div>
+      <div style="display: grid; gap: 12px; font-size: 15px">
+        <a href="mailto:profe@learnspanishfasthoy.com" style="color: #C9B8AF" style-hover="color: #FFF6F2">Email Profe Linda</a>
+        <a href="Learn%20Spanish%20Fast%20Hoy.dc.html#faq" style="color: #C9B8AF" style-hover="color: #FFF6F2">FAQ</a>
+      </div>
+      <div style="font-size: 13px; color: #C9B8AF; line-height: 1.8">© 2026 Learn Spanish Fast hoy. TPRS® is a registered method of TPRS Books.</div>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280}}">
+class Component extends DCLogic {
+  state = { picked: [] };
+
+  items() {
+    return [
+      { title: "I can greet someone and introduce myself", example: "Hola, me llamo… soy de… mucho gusto." },
+      { title: "I can say what I like, want and feel", example: "Me gusta el café, quiero ir a la playa, estoy cansada." },
+      { title: "I can describe what is happening right now", example: "Full sentences in the present tense, without pausing to assemble them." },
+      { title: "I can tell someone what I did yesterday", example: "A short story in the past tense: fui, comí, hablamos." },
+      { title: "I can read a short Spanish novel and follow it", example: "Twenty pages without a dictionary at your elbow." },
+      { title: "I can hold my own in a group conversation", example: "Several tenses, opinions, and abstract ideas at conversational pace." }
+    ];
+  }
+
+  results() {
+    return [
+      { level: "Beginning I", body: "Start at the beginning, and enjoy it. This class is for true beginners and for anyone who took Spanish at school but still can't speak it. You'll acquire the top 100+ verbs and words through storytelling and finish able to talk about yourself in the present tense.", cta: "See Beginning I" },
+      { level: "Beginning I", body: "Beginning I is still your class. You have a few words already, which will make the first weeks comfortable rather than easy, and you'll build real spoken fluency in the present tense from there.", cta: "See Beginning I" },
+      { level: "Beginning II", body: "You can speak on familiar topics in the present, so Beginning II is the right jump: real language in real situations, the basic past tense from the first class, and everything from Beginning I reinforced.", cta: "See Beginning II" },
+      { level: "Intermediate Fall", body: "You are ready for the intermediate track. Expect a review of the present indicative, then the past tense and a little subjunctive, all through stories and small-group talking rather than drills.", cta: "See Intermediate Fall" },
+      { level: "Intermediate Spring", body: "You already narrate in the past and read comfortably, so Intermediate Spring fits: longer stories, longer reading, and more time speaking about the past and the future.", cta: "See Intermediate Spring" },
+      { level: "Intermediate-Advanced", body: "You belong in the top class: abstract ideas across multiple tenses, real novels, and discussion at pace. Storytelling and book club in one, and no grammar drills in sight.", cta: "See Intermediate-Advanced" },
+      { level: "Intermediate-Advanced", body: "You can do everything on the list, so come to Intermediate-Advanced for the conversation practice and the reading, or email Profe Linda about the in-person storytelling and book club.", cta: "See Intermediate-Advanced" }
+    ];
+  }
+
+  renderVals() {
+    const picked = this.state.picked;
+    const score = picked.length;
+    const r = this.results()[Math.min(score, 6)];
+    return {
+      menuOpen: this.state.menuOpen,
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      levelNames: ["Beginning I", "Beginning II", "Intermediate Fall", "Intermediate Spring", "Intermediate-Advanced"],
+      ladder: [
+        { n: "01", name: "Beginning I", expects: "Nothing at all. True beginners welcome, as are refugees from high-school Spanish who never got speaking." },
+        { n: "02", name: "Beginning II", expects: "You can speak on familiar topics in the present tense with acceptable pronunciation, roughly what Beginning I gives you." },
+        { n: "03", name: "Intermediate Fall", expects: "You understand most of what you hear in class and can hold a simple conversation without translating first." },
+        { n: "04", name: "Intermediate Spring", expects: "You finished Intermediate Fall, or you can already narrate a short story in the past tense." },
+        { n: "05", name: "Intermediate-Advanced", expects: "You comprehend spoken Spanish easily and want conversation and reading at pace, not more grammar." }
+      ],
+      checks: this.items().map((it, i) => ({
+        title: it.title,
+        example: it.example,
+        mark: picked.includes(i) ? "✓" : "",
+        dotBg: picked.includes(i) ? "#8C2F39" : "transparent",
+        toggle: () => this.setState(s => ({
+          picked: s.picked.includes(i) ? s.picked.filter(j => j !== i) : [...s.picked, i]
+        }))
+      })),
+      resultKicker: score === 0 ? "Tick the statements above" : "Ticked " + score + " of 6 · suggested class",
+      resultLevel: r.level,
+      resultBody: r.body,
+      resultCta: r.cta,
+      reset: () => this.setState({ picked: [] })
+    };
+  }
+}
+</script>
+</body>
+</html>

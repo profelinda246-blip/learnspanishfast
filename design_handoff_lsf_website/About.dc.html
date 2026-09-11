@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #F6EFE7; color: #23191A; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: #8C2F39; text-decoration: none; }
+  a:hover { color: #23191A; }
+</style>
+</helmet>
+<div style="font-family: 'Bricolage Grotesque', 'Helvetica Neue', Helvetica, sans-serif; background: #F6EFE7; color: #23191A; overflow-x: hidden">
+
+  <header style="display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 22px clamp(20px, 5vw, 64px); border-bottom: 1px solid #E2D3C4; position: relative; z-index: 30">
+    <a href="Learn%20Spanish%20Fast%20Hoy.dc.html" style="display: flex; flex-direction: column; line-height: 1; color: #23191A">
+      <span style="font-size: 23px; font-weight: 600; letter-spacing: -0.035em">Learn Spanish Fast</span>
+      <span style="font-size: 13px; color: #8C2F39; margin-top: 7px">hoy · con Profe Linda</span>
+    </a>
+    <nav style="display: flex; align-items: center; gap: clamp(14px, 2.4vw, 28px); flex-wrap: wrap; font-size: 15px">
+      <div style="position: relative" onMouseEnter="{{ openMenu }}" onMouseLeave="{{ closeMenu }}">
+        <a href="All%20Classes.dc.html" style="color: #5C4A46" style-hover="color: #23191A">Courses</a>
+        <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position: absolute; top: calc(100% + 14px); left: -16px; min-width: 250px; background: #FBF6F0; border: 1px solid #E2D3C4; padding: 8px; display: grid; gap: 1px; box-shadow: 0 18px 40px rgba(35,25,26,0.1)">
+            <sc-for list="{{ levels }}" as="l" hint-placeholder-count="5">
+              <a href="All%20Classes.dc.html" style="display: block; padding: 11px 14px; color: #4A3B37; font-size: 15px" style-hover="background: #F0D3D7; color: #23191A">{{ l }}</a>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+      <a href="Know%20Your%20Spanish%20Level.dc.html" style="color: #5C4A46" style-hover="color: #23191A">Your level</a>
+      <a href="About.dc.html" style="color: #8C2F39; font-weight: 500">About</a>
+      <a href="Learn%20Spanish%20Fast%20Hoy.dc.html#faq" style="color: #5C4A46" style-hover="color: #23191A">FAQ</a>
+      <a href="mailto:profe@learnspanishfasthoy.com" style="background: #8C2F39; color: #FFF6F2; padding: 12px 20px; border-radius: 999px; font-size: 14px" style-hover="background: #23191A; color: #FFF6F2">Register</a>
+    </nav>
+  </header>
+
+  <section style="padding: clamp(44px, 6vw, 88px) clamp(20px, 5vw, 64px) clamp(40px, 5vw, 72px); background: linear-gradient(180deg, #FBF6F0 0%, #F6EFE7 100%)">
+    <div style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(30px, 5vw, 68px); align-items: center">
+      <div>
+        <div style="font-size: 14px; color: #8C2F39; margin-bottom: 18px">Conoce a tu profe</div>
+        <h1 style="font-size: clamp(40px, 5.6vw, 74px); line-height: 0.97; letter-spacing: -0.05em; font-weight: 500; margin: 0 0 24px">Linda Ward</h1>
+        <p style="font-size: clamp(17px, 1.5vw, 21px); line-height: 1.5; font-weight: 300; color: #4A3B37; margin: 0 0 28px; max-width: 32em">Instructor and owner of Learn Spanish Fast hoy. Non-native bilingual, twenty-five years in the classroom, and a complete convert to teaching through stories.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: clamp(18px, 3vw, 40px); padding-top: 24px; border-top: 1px solid #E2D3C4">
+          <sc-for list="{{ facts }}" as="f" hint-placeholder-count="3">
+            <div>
+              <div style="font-size: 28px; font-weight: 500; letter-spacing: -0.045em">{{ f.n }}</div>
+              <div style="font-size: 13px; color: #6B5852; margin-top: 7px">{{ f.label }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="position: relative">
+        <div style="position: absolute; left: -16px; top: -16px; right: 28px; bottom: 28px; background: #F0D3D7; border-radius: 4px"></div>
+        <div style="position: relative; aspect-ratio: 4 / 5; border: 1px solid #DCC8B8; background-color: #EFE4D8; background-image: repeating-linear-gradient(135deg, rgba(140,47,57,0.07) 0 2px, transparent 2px 11px); display: flex; align-items: flex-end; padding: 20px">
+          <span style="font-size: 12px; color: #6B5852; background: #F6EFE7; padding: 8px 11px">Portrait: Profe Linda Ward</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: clamp(44px, 6vw, 86px) clamp(20px, 5vw, 64px); background: #FBF6F0; border-top: 1px solid #E2D3C4; border-bottom: 1px solid #E2D3C4">
+    <div style="max-width: 780px; margin: 0 auto">
+      <h2 style="font-size: clamp(28px, 3.6vw, 44px); line-height: 1.02; letter-spacing: -0.05em; font-weight: 500; margin: 0 0 28px">Why Spanish, of all the languages?</h2>
+      <sc-for list="{{ story }}" as="p" hint-placeholder-count="5">
+        <p style="font-size: clamp(17px, 1.4vw, 19px); line-height: 1.68; font-weight: 300; color: #4A3B37; margin: 0 0 22px">{{ p }}</p>
+      </sc-for>
+      <blockquote style="margin: 34px 0 0; border-left: 2px solid #8C2F39; padding-left: 24px">
+        <p style="font-size: clamp(20px, 2.2vw, 26px); line-height: 1.32; letter-spacing: -0.03em; margin: 0 0 14px">After twenty-five years of teaching the communicative way, I pitched it overboard. I use TPRS® exclusively now, because the results are not comparable.</p>
+        <cite style="font-size: 14px; color: #6B5852; font-style: normal">Profe Linda</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section style="padding: clamp(44px, 6vw, 86px) clamp(20px, 5vw, 64px)">
+    <div style="max-width: 1180px; margin: 0 auto">
+      <div style="font-size: 14px; color: #8C2F39; margin-bottom: 16px">How she teaches</div>
+      <h2 style="font-size: clamp(28px, 3.6vw, 44px); line-height: 1.02; letter-spacing: -0.05em; font-weight: 500; margin: 0 0 clamp(28px, 4vw, 44px); max-width: 22em">A classroom with no textbook, no drills and no grades</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px">
+        <sc-for list="{{ beliefs }}" as="b" hint-placeholder-count="4">
+          <div style="border-top: 2px solid #8C2F39; padding-top: 20px">
+            <h3 style="font-size: 21px; font-weight: 500; letter-spacing: -0.035em; margin: 0 0 12px">{{ b.title }}</h3>
+            <p style="font-size: 16px; line-height: 1.62; font-weight: 300; color: #4A3B37; margin: 0">{{ b.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 0 clamp(20px, 5vw, 64px) clamp(44px, 6vw, 86px)">
+    <div style="max-width: 1180px; margin: 0 auto">
+      <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 14px; margin-bottom: 22px">
+        <h2 style="font-size: clamp(24px, 2.8vw, 34px); font-weight: 500; letter-spacing: -0.045em; margin: 0">En la clase</h2>
+        <span style="font-size: 14px; color: #6B5852">Zoom classes and student meet-ups</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px">
+        <sc-for list="{{ photos }}" as="ph" hint-placeholder-count="4">
+          <div style="aspect-ratio: 1 / 1; border: 1px solid #DCC8B8; background-color: #EFE4D8; background-image: repeating-linear-gradient(135deg, rgba(140,47,57,0.07) 0 2px, transparent 2px 11px); display: flex; align-items: flex-end; padding: 13px">
+            <span style="font-size: 12px; color: #6B5852; background: #F6EFE7; padding: 6px 9px">{{ ph }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: clamp(52px, 8vw, 104px) clamp(20px, 5vw, 64px); background: #8C2F39; color: #FFF6F2; text-align: center">
+    <div style="max-width: 720px; margin: 0 auto">
+      <h2 style="font-size: clamp(32px, 4.6vw, 58px); line-height: 0.98; letter-spacing: -0.055em; font-weight: 500; margin: 0 0 20px; color: #FFF6F2">Vamos a hablar.</h2>
+      <p style="font-size: clamp(17px, 1.5vw, 20px); line-height: 1.55; font-weight: 300; color: #F6DCDE; margin: 0 0 32px">Tell Profe Linda where you are with Spanish and she'll point you to the right class. There is no placement test to pass, only a conversation.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center">
+        <a href="All%20Classes.dc.html" style="font-size: 14px; background: #FFF6F2; color: #8C2F39; padding: 17px 30px; border-radius: 999px" style-hover="background: #EDE3DA; color: #23191A">See all classes</a>
+        <a href="Know%20Your%20Spanish%20Level.dc.html" style="font-size: 14px; color: #FFF6F2; padding: 17px 30px; border-radius: 999px; border: 1px solid rgba(255,246,242,0.45)" style-hover="border-color: #FFF6F2; background: rgba(255,246,242,0.1); color: #FFF6F2">Know your level</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding: clamp(36px, 5vw, 60px) clamp(20px, 5vw, 64px); background: #23191A; color: #C9B8AF">
+    <div style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; align-items: start">
+      <div>
+        <div style="font-size: 21px; font-weight: 600; letter-spacing: -0.035em; color: #FBF6F0">Learn Spanish Fast hoy</div>
+        <p style="font-size: 13px; color: #C9B8AF; margin: 12px 0 0; line-height: 1.8">Central Coast, California · Classes worldwide via Zoom</p>
+      </div>
+      <div style="display: grid; gap: 12px; font-size: 15px">
+        <a href="All%20Classes.dc.html" style="color: #C9B8AF" style-hover="color: #FFF6F2">All classes</a>
+        <a href="Know%20Your%20Spanish%20Level.dc.html" style="color: #C9B8AF" style-hover="color: #FFF6F2">Know your level</a>
+        <a href="Learn%20Spanish%20Fast%20Hoy.dc.html" style="color: #C9B8AF" style-hover="color: #FFF6F2">Home</a>
+      </div>
+      <div style="display: grid; gap: 12px; font-size: 15px">
+        <a href="mailto:profe@learnspanishfasthoy.com" style="color: #C9B8AF" style-hover="color: #FFF6F2">Email Profe Linda</a>
+        <a href="Learn%20Spanish%20Fast%20Hoy.dc.html#faq" style="color: #C9B8AF" style-hover="color: #FFF6F2">FAQ</a>
+      </div>
+      <div style="font-size: 13px; color: #C9B8AF; line-height: 1.8">© 2026 Learn Spanish Fast hoy. TPRS® is a registered method of TPRS Books.</div>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280}}">
+class Component extends DCLogic {
+  state = { menuOpen: false };
+
+  renderVals() {
+    return {
+      menuOpen: this.state.menuOpen,
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      levels: ["Beginning I", "Beginning II", "Intermediate Fall", "Intermediate Spring", "Intermediate-Advanced"],
+      facts: [
+        { n: "25 yrs", label: "Teaching Spanish" },
+        { n: "Spain", label: "Where she learned it" },
+        { n: "TPRS®", label: "The only method she uses" }
+      ],
+      story: [
+        "I am a non-native bilingual Spanish speaker, and I love speaking Spanish. Because I speak it I have double the friends, double the travel opportunities and double the fun, and I can express myself in two languages with all their nuances. You can too.",
+        "I learned Spanish in Spain, and I use it constantly here on the Central Coast of California, where so many of my neighbours speak it. Spanish is the second most spoken language in the world: 35 million speakers across 22 countries, and plenty of them wherever you happen to live.",
+        "I am a right-brained learner, so learning Spanish the old-fashioned grammar way was a real stretch for me. That is exactly why I empathise with my students as they acquire the language, and they tell me it makes the difference.",
+        "I decided to teach because of the look on a student's face when something lands: a skill that is useful and gives a lifetime of enjoyment. Teaching Spanish means I get to teach culture, art, history, music and economics too, and help my students take part more fully in a global culture.",
+        "In my opinion everyone can learn a second language. It is good for the brain, it wards off senility, it promotes understanding between people, and it is genuinely fun."
+      ],
+      beliefs: [
+        { title: "Stories before rules", body: "Class is built around interactive stories the group invents together, so the language arrives attached to meaning instead of to a grammar table." },
+        { title: "Always comprehensible", body: "You understand everything you hear in class. Nothing gets thrown at you before you are ready for it, which is why nobody freezes." },
+        { title: "Reading does the work", body: "A short Spanish novel per level teaches the highest-frequency vocabulary in context. Read, read, read is the whole homework policy." },
+        { title: "No grades, no fear", body: "No quizzes and no GPA pressure. Students speak from the first class because there is nothing to lose by trying." }
+      ],
+      photos: [
+        "Photo: Zoom class in full story mode",
+        "Photo: Small-group reading circle",
+        "Photo: Students at a Central Coast meet-up",
+        "Photo: Class novels on a table"
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

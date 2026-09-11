@@ -1,0 +1,7 @@
+# Secrets — never commit this. It holds a GitHub personal access token.
+github api.txt
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
