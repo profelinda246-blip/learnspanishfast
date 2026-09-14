@@ -17,17 +17,30 @@
       var panel = wrap.querySelector('.flyout-panel');
       if (!trigger || !panel) return;
 
+      var closeTimer = null;
+
       function open() {
+        if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
         panel.hidden = false;
         trigger.setAttribute('aria-expanded', 'true');
       }
       function close() {
+        if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
         panel.hidden = true;
         trigger.setAttribute('aria-expanded', 'false');
       }
+      // Small delay before closing on mouseleave, cancelled by open(): a
+      // short, fast mouse move from the trigger to the panel can briefly
+      // leave the .flyout box (e.g. crossing the gap above the panel), and
+      // closing immediately on that would drop the menu before a click on
+      // an item can land.
+      function scheduleClose() {
+        if (closeTimer) clearTimeout(closeTimer);
+        closeTimer = setTimeout(close, 200);
+      }
 
       wrap.addEventListener('mouseenter', open);
-      wrap.addEventListener('mouseleave', close);
+      wrap.addEventListener('mouseleave', scheduleClose);
       trigger.addEventListener('focus', open);
       wrap.addEventListener('focusout', function (e) {
         if (!wrap.contains(e.relatedTarget)) close();

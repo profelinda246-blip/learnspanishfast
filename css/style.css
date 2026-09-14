@@ -146,6 +146,18 @@ button { font-family: var(--font); }
   gap: 1px;
   box-shadow: 0 18px 40px rgba(35, 25, 26, 0.1);
 }
+/* Invisible bridge over the 14px gap above the panel: without it, the
+   cursor crosses dead space (outside .flyout's own box) on the way from
+   the trigger to the panel and fires a mouseleave that closes the menu
+   before a click on an item can land. */
+.flyout-panel::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  left: 0;
+  right: 0;
+  height: 14px;
+}
 .flyout-panel[hidden] { display: none; }
 .flyout-item {
   display: block;
