@@ -343,6 +343,17 @@ blockquote cite { font-size: 13px; color: var(--muted); font-style: normal; }
 
 /* -------------------------------------------------------- all classes page */
 .level-list { display: grid; gap: 16px; }
+/* Sits between two level cards that are really one continuous course
+   (Advanced I & II) so it reads as a shared intro rather than a
+   surprise on the second card alone. */
+.level-group-note {
+  background: var(--accent-pale);
+  border: 1px solid var(--border);
+  padding: 16px 22px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink);
+}
 .level-card {
   background: var(--panel); border: 1px solid var(--border);
   padding: clamp(22px, 3vw, 34px);
