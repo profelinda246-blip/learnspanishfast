@@ -21,11 +21,11 @@
     <div class="flyout">
       <a href="all-classes.html" class="nav-link is-active flyout-trigger" aria-haspopup="true" aria-expanded="false">Courses</a>
       <div class="flyout-panel" hidden>
-        <a href="all-classes.html" class="flyout-item">Beginning I</a>
-        <a href="all-classes.html" class="flyout-item">Beginning II</a>
-        <a href="all-classes.html" class="flyout-item">Intermediate Fall</a>
-        <a href="all-classes.html" class="flyout-item">Intermediate Spring</a>
-        <a href="all-classes.html" class="flyout-item">Intermediate-Advanced</a>
+        <a href="all-classes.html#beginning-i" class="flyout-item">Beginning I</a>
+        <a href="all-classes.html#beginning-ii" class="flyout-item">Beginning II</a>
+        <a href="all-classes.html#intermediate-fall" class="flyout-item">Intermediate Fall</a>
+        <a href="all-classes.html#intermediate-spring" class="flyout-item">Intermediate Spring</a>
+        <a href="all-classes.html#intermediate-advanced" class="flyout-item">Intermediate-Advanced</a>
       </div>
     </div>
     <a href="know-your-level.html" class="nav-link">Your level</a>
@@ -50,7 +50,7 @@
 <section class="section" style="padding-top:0">
   <div class="wrap level-list">
 
-    <article class="level-card">
+    <article class="level-card" id="beginning-i">
       <div>
         <div class="level-step">Level 01 · Start here</div>
         <h2>Beginning I</h2>
@@ -67,12 +67,14 @@
         <div class="detail-row"><span class="detail-label">Term</span><span class="detail-value">Sep 22 to Nov 10</span></div>
         <div class="detail-row"><span class="detail-label">Novel</span><span class="detail-value">Pobre Ana</span></div>
         <div class="detail-row"><span class="detail-label">Homework</span><span class="detail-value">About 1 hr/week</span></div>
-        <button type="button" class="pill pill--accent" data-add-to-cart="Beginning I" data-price="$140">Add to cart</button>
+        <!-- TODO: swap this mailto: for the real Stripe Payment Link for Beginning I once it exists,
+             so this button sends the student straight to Stripe Checkout. -->
+        <a href="mailto:profe@learnspanishfasthoy.com?subject=Register%20for%20Beginning%20I&body=Hi%20Profe%20Linda%2C%0A%0AI%27d%20like%20to%20register%20for%20Beginning%20I.%20Please%20send%20me%20the%20payment%20link%20and%20Zoom%20details.%0A%0AThank%20you%21" class="pill pill--accent" data-enroll="Beginning I">Register for this class</a>
         <a href="mailto:profe@learnspanishfasthoy.com" class="ask-link">Ask Profe Linda about this class</a>
       </div>
     </article>
 
-    <article class="level-card">
+    <article class="level-card" id="beginning-ii">
       <div>
         <div class="level-step">Level 02</div>
         <h2>Beginning II</h2>
@@ -89,12 +91,14 @@
         <div class="detail-row"><span class="detail-label">Term</span><span class="detail-value">Oct 21 to Dec 9</span></div>
         <div class="detail-row"><span class="detail-label">Novel</span><span class="detail-value">Announced before term</span></div>
         <div class="detail-row"><span class="detail-label">Homework</span><span class="detail-value">About 1 hr/week</span></div>
-        <button type="button" class="pill pill--accent" data-add-to-cart="Beginning II" data-price="$140">Add to cart</button>
+        <!-- TODO: swap this mailto: for the real Stripe Payment Link for Beginning II once it exists,
+             so this button sends the student straight to Stripe Checkout. -->
+        <a href="mailto:profe@learnspanishfasthoy.com?subject=Register%20for%20Beginning%20II&body=Hi%20Profe%20Linda%2C%0A%0AI%27d%20like%20to%20register%20for%20Beginning%20II.%20Please%20send%20me%20the%20payment%20link%20and%20Zoom%20details.%0A%0AThank%20you%21" class="pill pill--accent" data-enroll="Beginning II">Register for this class</a>
         <a href="mailto:profe@learnspanishfasthoy.com" class="ask-link">Ask Profe Linda about this class</a>
       </div>
     </article>
 
-    <article class="level-card">
+    <article class="level-card" id="intermediate-fall">
       <div>
         <div class="level-step">Level 03</div>
         <h2>Intermediate Fall</h2>
@@ -111,12 +115,14 @@
         <div class="detail-row"><span class="detail-label">Term</span><span class="detail-value">Sep 23 to Nov 11</span></div>
         <div class="detail-row"><span class="detail-label">Novel</span><span class="detail-value">Pobre Ana Bailó Tango</span></div>
         <div class="detail-row"><span class="detail-label">Homework</span><span class="detail-value">About 1 hr/week</span></div>
-        <button type="button" class="pill pill--accent" data-add-to-cart="Intermediate Fall" data-price="$140">Add to cart</button>
+        <!-- TODO: swap this mailto: for the real Stripe Payment Link for Intermediate Fall once it exists,
+             so this button sends the student straight to Stripe Checkout. -->
+        <a href="mailto:profe@learnspanishfasthoy.com?subject=Register%20for%20Intermediate%20Fall&body=Hi%20Profe%20Linda%2C%0A%0AI%27d%20like%20to%20register%20for%20Intermediate%20Fall.%20Please%20send%20me%20the%20payment%20link%20and%20Zoom%20details.%0A%0AThank%20you%21" class="pill pill--accent" data-enroll="Intermediate Fall">Register for this class</a>
         <a href="mailto:profe@learnspanishfasthoy.com" class="ask-link">Ask Profe Linda about this class</a>
       </div>
     </article>
 
-    <article class="level-card">
+    <article class="level-card" id="intermediate-spring">
       <div>
         <div class="level-step">Level 04</div>
         <h2>Intermediate Spring</h2>
@@ -133,12 +139,14 @@
         <div class="detail-row"><span class="detail-label">Term</span><span class="detail-value">Feb 3 to Mar 24</span></div>
         <div class="detail-row"><span class="detail-label">Novel</span><span class="detail-value">Announced before term</span></div>
         <div class="detail-row"><span class="detail-label">Homework</span><span class="detail-value">About 1 hr/week</span></div>
-        <button type="button" class="pill pill--accent" data-add-to-cart="Intermediate Spring" data-price="$140">Add to cart</button>
+        <!-- TODO: swap this mailto: for the real Stripe Payment Link for Intermediate Spring once it exists,
+             so this button sends the student straight to Stripe Checkout. -->
+        <a href="mailto:profe@learnspanishfasthoy.com?subject=Register%20for%20Intermediate%20Spring&body=Hi%20Profe%20Linda%2C%0A%0AI%27d%20like%20to%20register%20for%20Intermediate%20Spring.%20Please%20send%20me%20the%20payment%20link%20and%20Zoom%20details.%0A%0AThank%20you%21" class="pill pill--accent" data-enroll="Intermediate Spring">Register for this class</a>
         <a href="mailto:profe@learnspanishfasthoy.com" class="ask-link">Ask Profe Linda about this class</a>
       </div>
     </article>
 
-    <article class="level-card">
+    <article class="level-card" id="intermediate-advanced">
       <div>
         <div class="level-step">Level 05</div>
         <h2>Intermediate-Advanced</h2>
@@ -155,23 +163,13 @@
         <div class="detail-row"><span class="detail-label">Term</span><span class="detail-value">Sep 21 to Nov 9</span></div>
         <div class="detail-row"><span class="detail-label">Novel</span><span class="detail-value">Announced before term</span></div>
         <div class="detail-row"><span class="detail-label">Homework</span><span class="detail-value">About 1 hr/week</span></div>
-        <button type="button" class="pill pill--accent" data-add-to-cart="Intermediate-Advanced" data-price="$140">Add to cart</button>
+        <!-- TODO: swap this mailto: for the real Stripe Payment Link for Intermediate-Advanced once it exists,
+             so this button sends the student straight to Stripe Checkout. -->
+        <a href="mailto:profe@learnspanishfasthoy.com?subject=Register%20for%20Intermediate-Advanced&body=Hi%20Profe%20Linda%2C%0A%0AI%27d%20like%20to%20register%20for%20Intermediate-Advanced.%20Please%20send%20me%20the%20payment%20link%20and%20Zoom%20details.%0A%0AThank%20you%21" class="pill pill--accent" data-enroll="Intermediate-Advanced">Register for this class</a>
         <a href="mailto:profe@learnspanishfasthoy.com" class="ask-link">Ask Profe Linda about this class</a>
       </div>
     </article>
 
-  </div>
-</section>
-
-<section class="section section--ink">
-  <div class="wrap cart-grid">
-    <div>
-      <div class="eyebrow" style="color:var(--accent-pale-dark); font-size:14px">In your cart</div>
-      <h2 id="cart-heading" class="cart-heading">Your cart is empty</h2>
-      <p id="cart-note" class="cart-note">Add a class above and it will appear here. Books and the $5 audiobook subscription are bought separately, in the two steps below.</p>
-      <a href="mailto:profe@learnspanishfasthoy.com" class="pill pill--on-ink" style="display:inline-block; font-size:14px">Checkout by email</a>
-    </div>
-    <div id="cart-items" class="cart-items"></div>
   </div>
 </section>
 
