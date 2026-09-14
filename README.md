@@ -25,15 +25,13 @@ Reproduced from the design handoff in [`design_handoff_lsf_website/`](design_han
 
 ## Course catalogue
 
-`all-classes.html` reflects the real 2026 course lineup, not the design handoff's prototype levels. The five levels are **Beginning I, Beginning II, Intermediate, Advanced I, Advanced II** (the handoff had "Intermediate Fall / Intermediate Spring / Intermediate-Advanced" instead — that naming is gone everywhere, including the placement quiz in `js/main.js` and the nav dropdown on all four pages). Schedule, term dates, prerequisites, novels and required materials per level come from the client's real course descriptions, not the handoff.
+`all-classes.html` reflects the real 2026 course lineup, not the design handoff's prototype levels. The five levels are **Beginning I, Beginning II, Intermediate, Advanced I, Advanced II** (the handoff had "Intermediate Fall / Intermediate Spring / Intermediate-Advanced" instead — that naming is gone everywhere, including the placement quiz in `js/main.js` and the nav dropdown on all four pages). Schedule, term dates, prerequisites, novels and required materials per level come from the client's real course descriptions, not the handoff. Price is confirmed at **$139 for every level**. The Cuesta College in-person/Zoom hybrid format is confirmed to apply to **Beginning I only** — the other four levels are Zoom-only.
 
 ## Known placeholders / open items
 
 - **Photos and logo are placeholders.** Every image is a labelled striped box; real photos and the logo still need to come from the client.
-- **Class prices are not published anywhere in the source material**, so every level card reads "Announced at registration" instead of a dollar figure — there's a `TODO` comment above each one in `all-classes.html` marking where a real price goes once Profe Linda confirms it.
 - **Amazon curriculum workbook links** are named per level ("Amazon: LSF Beginning I curriculum (link coming)") but not yet linked — `TODO` comments mark each spot in `all-classes.html`.
 - **Advanced I and Advanced II meeting times** aren't confirmed — only the day (Tuesdays) and duration (5 weeks) were given, so the cards read "time to be confirmed". `TODO` comments mark both.
-- **Hybrid format is confirmed for Beginning I only** ("In person at Cuesta College, SLO, or live via Zoom") — it's not stated whether the other four levels are also hybrid or Zoom-only; confirm before assuming one way or the other.
 - **Enrollment is a `mailto:` per class.** Each level's "Register for this class" button opens an email to Profe Linda naming that class; swapping in the real Stripe Payment Link per class (see `design_handoff_lsf_website/BEHAVIOR.md`) is a follow-up, not built here. Each button has a `TODO` comment right above it in `all-classes.html` marking where that link goes — once Stripe has a link for a class, drop it into that button's `href` and it's live.
 - **No mobile hamburger menu.** Layout is fully fluid (`clamp()`, `auto-fit` grids) and the nav wraps on narrow screens; a dedicated mobile menu is still to be designed.
 
