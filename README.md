@@ -23,15 +23,23 @@ Reproduced from the design handoff in [`design_handoff_lsf_website/`](design_han
 - The homepage stat now reads "5 levels" (was "4 levels") to match the catalogue — flagged in `BEHAVIOR.md`.
 - The handoff prototyped an e-commerce-style cart (add classes, see a running total, one combined checkout). These are enrollments in a live class with a fixed number of seats, not a store, so the cart was dropped: each class card in `all-classes.html` has its own "Register for this class" button that goes straight to that class's enrollment, not a shared basket.
 
+## Course catalogue
+
+`all-classes.html` reflects the real 2026 course lineup, not the design handoff's prototype levels. The five levels are **Beginning I, Beginning II, Intermediate, Advanced I, Advanced II** (the handoff had "Intermediate Fall / Intermediate Spring / Intermediate-Advanced" instead — that naming is gone everywhere, including the placement quiz in `js/main.js` and the nav dropdown on all four pages). Schedule, term dates, prerequisites, novels and required materials per level come from the client's real course descriptions, not the handoff.
+
 ## Known placeholders / open items
 
-Carried over from the design handoff, still true here:
-
-- **Photos are placeholders.** Every image is a labelled striped box; real photos and the logo need to come from the client's current Weebly site.
-- **Prices and dates are stale** (`$140`, meeting days/times, term dates) — confirm with the client before launch.
-- **Enrollment is a `mailto:` per class.** Each level's "Register for this class" button opens an email to Profe Linda naming that class; swapping in the real Stripe Payment Link per class (see `design_handoff_lsf_website/BEHAVIOR.md`) is a follow-up, not built here. Each button has a `TODO` comment right above it in `all-classes.html` marking where that link goes — once Stripe has a link for a class, drop it into that button's `href` and it's live. The $5 audiobook is bought separately at TPRS Books, unchanged.
-- **Contact address** `profe@learnspanishfasthoy.com` is assumed throughout — confirm.
+- **Photos and logo are placeholders.** Every image is a labelled striped box; real photos and the logo still need to come from the client.
+- **Class prices are not published anywhere in the source material**, so every level card reads "Announced at registration" instead of a dollar figure — there's a `TODO` comment above each one in `all-classes.html` marking where a real price goes once Profe Linda confirms it.
+- **Amazon curriculum workbook links** are named per level ("Amazon: LSF Beginning I curriculum (link coming)") but not yet linked — `TODO` comments mark each spot in `all-classes.html`.
+- **Advanced I and Advanced II meeting times** aren't confirmed — only the day (Tuesdays) and duration (5 weeks) were given, so the cards read "time to be confirmed". `TODO` comments mark both.
+- **Hybrid format is confirmed for Beginning I only** ("In person at Cuesta College, SLO, or live via Zoom") — it's not stated whether the other four levels are also hybrid or Zoom-only; confirm before assuming one way or the other.
+- **Enrollment is a `mailto:` per class.** Each level's "Register for this class" button opens an email to Profe Linda naming that class; swapping in the real Stripe Payment Link per class (see `design_handoff_lsf_website/BEHAVIOR.md`) is a follow-up, not built here. Each button has a `TODO` comment right above it in `all-classes.html` marking where that link goes — once Stripe has a link for a class, drop it into that button's `href` and it's live.
 - **No mobile hamburger menu.** Layout is fully fluid (`clamp()`, `auto-fit` grids) and the nav wraps on narrow screens; a dedicated mobile menu is still to be designed.
+
+## Contact info
+
+Confirmed from the client: email `profelinda246@gmail.com`, phone `(805) 440-3064`, based in San Luis Obispo, CA. Used throughout — nav "Register" links, footers, and per-class "Register"/"Ask Profe Linda" links.
 
 ## Deploying
 
