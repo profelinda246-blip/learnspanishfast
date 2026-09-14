@@ -88,10 +88,6 @@ button { font-family: var(--font); }
 .pill--on-accent:hover { background: var(--neutral-hover); color: var(--ink); }
 .pill--on-accent-outline { background: none; color: var(--ink-on-accent); border: 1px solid rgba(255,246,242,0.45); }
 .pill--on-accent-outline:hover { border-color: var(--ink-on-accent); background: rgba(255,246,242,0.1); }
-.pill--on-ink { background: var(--accent-pale); color: var(--ink); }
-.pill--on-ink:hover { background: var(--ink-on-accent); }
-.pill--ghost-ink { background: none; border: 1px solid rgba(246,239,231,0.35); color: var(--text-dark-1); }
-.pill--ghost-ink:hover { border-color: var(--accent-pale); color: var(--ink-on-accent); }
 .pill--ghost-result { background: none; border: 1px solid rgba(43,17,20,0.3); color: var(--ink); }
 .pill--ghost-result:hover { border-color: var(--ink); }
 .pill-row { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -367,16 +363,6 @@ blockquote cite { font-size: 13px; color: var(--muted); font-style: normal; }
 .level-details .pill { margin-top: 6px; width: 100%; }
 .ask-link { display: block; font-size: 14px; color: var(--accent); text-align: center; }
 .ask-link:hover { color: var(--ink); }
-
-.cart-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(28px, 4vw, 56px); }
-.cart-heading { font-size: clamp(28px, 3.6vw, 44px); line-height: 1.02; letter-spacing: -0.05em; font-weight: 500; margin: 0 0 16px; color: var(--text-dark-3); }
-.cart-note { font-size: 16px; line-height: 1.65; font-weight: 300; color: var(--text-dark-1); margin: 0 0 24px; }
-.cart-items { display: grid; gap: 10px; align-content: start; }
-.cart-item { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid rgba(246,239,231,0.18); padding-bottom: 12px; }
-.cart-item-name { font-size: 16px; color: var(--text-dark-3); }
-.cart-item-right { display: flex; align-items: center; gap: 14px; }
-.cart-item-price { font-size: 16px; color: var(--text-dark-2); }
-.cart-empty-note { font-size: 15px; color: var(--text-dark-1); }
 
 .step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
 .step-card { background: var(--ground); border: 1px solid var(--border); padding: 28px 24px; }
