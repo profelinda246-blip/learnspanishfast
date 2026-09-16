@@ -22,6 +22,7 @@ Reproduced from the design handoff in [`design_handoff_lsf_website/`](design_han
 - The courses menu now opens on keyboard focus and click/touch, not hover only (`aria-expanded`, closes on Escape and outside click) — flagged as a gap in `SCREENS.md`.
 - The homepage stat now reads "5 levels" (was "4 levels") to match the catalogue — flagged in `BEHAVIOR.md`.
 - The handoff prototyped an e-commerce-style cart (add classes, see a running total, one combined checkout). These are enrollments in a live class with a fixed number of seats, not a store, so the cart was dropped: each class card in `all-classes.html` has its own "Register for this class" button that goes straight to that class's enrollment, not a shared basket.
+- The homepage's "La clase, en fotos" placeholder photo grid (4 unlabelled student/classroom placeholder shots) was removed at the client's request.
 
 ## Course catalogue
 
@@ -29,7 +30,7 @@ Reproduced from the design handoff in [`design_handoff_lsf_website/`](design_han
 
 ## Known placeholders / open items
 
-- **Photos and logo are mostly still placeholders.** Real photos go in [`img/`](img/) (created for this) — `img/profe-linda-hero.jpg` (homepage hero) and `img/profe-linda-meet.jpg` (homepage "Meet Linda Ward") are filled in; every other image is still a labelled striped box, and the logo hasn't come from the client yet.
+- **Photos and logo are mostly still placeholders.** Real photos go in [`img/`](img/) (created for this) — `img/profe-linda-hero.jpg` (homepage hero), `img/profe-linda-meet.jpg` (homepage "Meet Linda Ward"), and all 5 novel covers (`img/novel-*`, used in both the homepage course teasers and `all-classes.html`) are filled in; the rest of the images (student photos, novel covers not yet supplied) are still labelled striped boxes, and the logo hasn't come from the client yet.
 - **Amazon curriculum workbook links** are named per level ("Amazon: LSF Beginning I curriculum (link coming)") but not yet linked — `TODO` comments mark each spot in `all-classes.html`.
 - **Advanced I and Advanced II meeting times** aren't confirmed — only the day (Tuesdays) and duration (5 weeks) were given, so the cards read "time to be confirmed". `TODO` comments mark both.
 - **Enrollment is a `mailto:` per class.** Each level's "Register for this class" button opens an email to Profe Linda naming that class; swapping in the real Stripe Payment Link per class (see `design_handoff_lsf_website/BEHAVIOR.md`) is a follow-up, not built here. Each button has a `TODO` comment right above it in `all-classes.html` marking where that link goes — once Stripe has a link for a class, drop it into that button's `href` and it's live.

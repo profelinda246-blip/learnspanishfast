@@ -236,6 +236,7 @@ h1 {
 .ph--4x5 { aspect-ratio: 4 / 5; }
 .ph--1x1 { aspect-ratio: 1 / 1; }
 .ph--3x2 { aspect-ratio: 3 / 2; }
+.ph--2x3 { aspect-ratio: 2 / 3; }
 /* A real photo dropped into a .ph box: drop the striped placeholder
    fill/caption padding and let the image cover the box edge to edge. */
 .ph--filled { padding: 0; background-image: none; overflow: hidden; }
