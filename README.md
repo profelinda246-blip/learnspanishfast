@@ -29,7 +29,7 @@ Reproduced from the design handoff in [`design_handoff_lsf_website/`](design_han
 
 ## Known placeholders / open items
 
-- **Photos and logo are mostly still placeholders.** Real photos go in [`img/`](img/) (created for this) — `img/profe-linda.jpg` (homepage hero) and `img/profe-linda-meet.jpg` (homepage "Meet Linda Ward") are filled in; every other image is still a labelled striped box, and the logo hasn't come from the client yet.
+- **Photos and logo are mostly still placeholders.** Real photos go in [`img/`](img/) (created for this) — `img/profe-linda-hero.jpg` (homepage hero) and `img/profe-linda-meet.jpg` (homepage "Meet Linda Ward") are filled in; every other image is still a labelled striped box, and the logo hasn't come from the client yet.
 - **Amazon curriculum workbook links** are named per level ("Amazon: LSF Beginning I curriculum (link coming)") but not yet linked — `TODO` comments mark each spot in `all-classes.html`.
 - **Advanced I and Advanced II meeting times** aren't confirmed — only the day (Tuesdays) and duration (5 weeks) were given, so the cards read "time to be confirmed". `TODO` comments mark both.
 - **Enrollment is a `mailto:` per class.** Each level's "Register for this class" button opens an email to Profe Linda naming that class; swapping in the real Stripe Payment Link per class (see `design_handoff_lsf_website/BEHAVIOR.md`) is a follow-up, not built here. Each button has a `TODO` comment right above it in `all-classes.html` marking where that link goes — once Stripe has a link for a class, drop it into that button's `href` and it's live.
