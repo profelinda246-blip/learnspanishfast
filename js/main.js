@@ -145,9 +145,109 @@
     render();
   }
 
+  /* ---------------------------------------------------------- thank you
+     One page (thank-you.html) shared by all 5 Stripe Payment Links,
+     each configured in the Stripe Dashboard to redirect here with
+     ?class=<slug> after a successful payment. Reads the slug and
+     fills in that class's recap + materials; falls back to a generic
+     message if the slug is missing or unrecognized. */
+  function initThankYou() {
+    var recap = document.getElementById('ty-recap');
+    if (!recap) return;
+
+    var CLASSES = {
+      'beginning-i': {
+        name: 'Beginning I',
+        format: 'In person at Cuesta College, SLO, or live via Zoom',
+        meets: 'Thursdays, 5:20 to 7:00pm · 7 weeks',
+        term: 'Aug 27 to Oct 8, 2026',
+        novel: 'Pobre Ana (paperback).',
+        workbook: 'Amazon: LSF Beginning I curriculum — link coming soon. Email Profe Linda if you need it sooner.'
+      },
+      'beginning-ii': {
+        name: 'Beginning II',
+        meets: 'Thursdays, 5:20 to 7:00pm · 7 weeks',
+        term: 'Oct 22 to Dec 10, 2026',
+        novel: 'Las Aventuras en el Día de los Muertos.',
+        workbook: 'Amazon: LSF curriculum book — link coming soon. Email Profe Linda if you need it sooner.'
+      },
+      'intermediate': {
+        name: 'Intermediate',
+        prereq: 'Beginning I & II',
+        meets: 'Wednesdays, 5:20 to 7:00pm · 6 weeks',
+        term: 'Sep 2 to Oct 7, 2026',
+        novel: 'Pobre Ana Bailó Tango (paperback/audiobook).',
+        workbook: 'Amazon: LSF curriculum book — link coming soon. Email Profe Linda if you need it sooner.'
+      },
+      'advanced-i': {
+        name: 'Advanced I',
+        prereq: 'Comfortable with the subjunctive and most tenses',
+        meets: 'Tuesdays, time to be confirmed · 5 weeks',
+        term: 'Sep 8 to Oct 6, 2026',
+        novel: 'Vida o Muerte en el Cusco, by Blaine Ray (paperback & audiobook).',
+        workbook: 'No separate workbook for Advanced I/II — it is all guided conversation.',
+        continuation: {
+          text: 'Advanced I & II are one continuous course — same novel, same group, no new topic. If you haven’t already, register for Advanced II too so your seat carries through.',
+          href: 'https://buy.stripe.com/6oUaEQ1fafEz74pbCycZa05',
+          linkText: 'Register for Advanced II →'
+        }
+      },
+      'advanced-ii': {
+        name: 'Advanced II',
+        prereq: 'Advanced I, subjunctive comfort, plus teacher approval',
+        meets: 'Tuesdays, time to be confirmed · 5 weeks',
+        term: 'Oct 20 to Nov 17, 2026',
+        novel: 'Vida o Muerte en el Cusco, by Blaine Ray — same novel, continued.',
+        workbook: 'No separate workbook for Advanced I/II — it is all guided conversation.'
+      }
+    };
+
+    var slug = new URLSearchParams(location.search).get('class');
+    var data = slug && CLASSES[slug];
+    var materials = document.getElementById('ty-materials');
+    var fallback = document.getElementById('ty-fallback');
+
+    if (!data) {
+      recap.hidden = true;
+      if (materials) materials.hidden = true;
+      if (fallback) fallback.hidden = false;
+      return;
+    }
+
+    document.getElementById('ty-heading').textContent = 'Gracias, ' + data.name + '!';
+    document.getElementById('ty-lead').textContent =
+      'You’re registered for ' + data.name + '. We’ll send the Zoom link and reading guide before your first class.';
+    document.getElementById('ty-meets').textContent = data.meets;
+    document.getElementById('ty-term').textContent = data.term;
+    document.getElementById('ty-novel').textContent = data.novel;
+    document.getElementById('ty-workbook').textContent = data.workbook;
+
+    if (data.format) {
+      document.getElementById('ty-format-row').hidden = false;
+      document.getElementById('ty-format').textContent = data.format;
+    }
+    if (data.prereq) {
+      document.getElementById('ty-prereq-row').hidden = false;
+      document.getElementById('ty-prereq').textContent = data.prereq;
+    }
+    if (data.continuation) {
+      var wrap = document.getElementById('ty-continuation-wrap');
+      var note = document.getElementById('ty-continuation');
+      wrap.hidden = false;
+      note.textContent = data.continuation.text + ' ';
+      var link = document.createElement('a');
+      link.href = data.continuation.href;
+      link.textContent = data.continuation.linkText;
+      link.style.color = 'inherit';
+      link.style.textDecoration = 'underline';
+      note.appendChild(link);
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initFlyouts();
     initFaq();
     initPlacement();
+    initThankYou();
   });
 })();

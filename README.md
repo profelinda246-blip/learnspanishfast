@@ -12,8 +12,9 @@ Static HTML/CSS/JS — no build step, no framework, no dependencies. Open `index
 | [`all-classes.html`](all-classes.html) | Course catalogue, 5 levels, per-class enrollment, book-buying steps |
 | [`about.html`](about.html) | Profe Linda's story |
 | [`know-your-level.html`](know-your-level.html) | Self-placement checklist |
+| [`thank-you.html`](thank-you.html) | Post-payment page — see "Stripe checkout" below |
 
-Shared assets: [`css/style.css`](css/style.css) (design tokens + layout) and [`js/main.js`](js/main.js) (courses menu, FAQ accordion, placement quiz).
+Shared assets: [`css/style.css`](css/style.css) (design tokens + layout) and [`js/main.js`](js/main.js) (courses menu, FAQ accordion, placement quiz, thank-you page content).
 
 ## Design source
 
@@ -33,8 +34,25 @@ Reproduced from the design handoff in [`design_handoff_lsf_website/`](design_han
 - **Photos and logo are mostly still placeholders.** Real photos go in [`img/`](img/) (created for this) — `img/profe-linda-hero.jpg` (homepage hero), `img/profe-linda-meet.jpg` (homepage "Meet Linda Ward" and the About page hero), and all 5 novel covers (`img/novel-*`, used in both the homepage course teasers and `all-classes.html`) are filled in; the remaining images are still labelled striped boxes, and the logo hasn't come from the client yet.
 - **Amazon curriculum workbook links** are named per level ("Amazon: LSF Beginning I curriculum (link coming)") but not yet linked — `TODO` comments mark each spot in `all-classes.html`.
 - **Advanced I and Advanced II meeting times** aren't confirmed — only the day (Tuesdays) and duration (5 weeks) were given, so the cards read "time to be confirmed". `TODO` comments mark both.
-- **Enrollment now goes to real Stripe Payment Links**, one per level, all $139 — each "Register for this class" button in `all-classes.html` links straight to Stripe Checkout. No server involved: Payment Links are pre-created in the Stripe Dashboard and need no backend, which fits this static/GitHub-Pages site. (A separate "Stripe Checkout Studio" code-integration prompt was sent our way that assumed a server-side `stripe.checkout.sessions.create(...)` call — that path was deliberately not taken, since it needs a real backend this site doesn't have; see the session notes if that comes up again.) Still open: a proper post-payment "thank you" experience — right now Payment Links fall back to Stripe's generic confirmation screen. Plan is one dynamic `thank-you.html?class=<slug>` page on our side (Stripe Payment Links support redirecting to a custom URL after payment), rather than 5 near-duplicate pages.
 - **No mobile hamburger menu.** Layout is fully fluid (`clamp()`, `auto-fit` grids) and the nav wraps on narrow screens; a dedicated mobile menu is still to be designed.
+
+## Stripe checkout
+
+Enrollment goes through real Stripe Payment Links, one per level, all $139 — each "Register for this class" button in `all-classes.html` links straight to Stripe Checkout. No server involved: Payment Links are pre-created in the Stripe Dashboard and need no backend, which fits this static/GitHub-Pages site. (A separate "Stripe Checkout Studio" code-integration prompt was sent our way twice, for an embedded custom form and later a "hosted" redirect — both assumed a server-side `stripe.checkout.sessions.create(...)` call with a secret key. Neither path was taken: this site has no backend to run that on, and there's nowhere safe to hold a secret key in a static repo. If that prompt comes back, the answer is still Payment Links.)
+
+**Post-payment page**: [`thank-you.html`](thank-you.html) is one page shared by all 5 links — it reads `?class=<slug>` from the URL and fills in that class's schedule, novel, and materials (logic in `js/main.js`, `initThankYou`). No slug, or an unrecognized one, falls back to a generic thank-you + link to the catalogue.
+
+**Still needs doing, in the Stripe Dashboard (not code — I can't do this part myself):** each Payment Link's "After payment" setting must be set to redirect to its matching thank-you URL:
+
+| Class | Redirect to |
+| --- | --- |
+| Beginning I | `https://profelinda246-blip.github.io/learnspanishfast/thank-you.html?class=beginning-i` |
+| Beginning II | `https://profelinda246-blip.github.io/learnspanishfast/thank-you.html?class=beginning-ii` |
+| Intermediate | `https://profelinda246-blip.github.io/learnspanishfast/thank-you.html?class=intermediate` |
+| Advanced I | `https://profelinda246-blip.github.io/learnspanishfast/thank-you.html?class=advanced-i` |
+| Advanced II | `https://profelinda246-blip.github.io/learnspanishfast/thank-you.html?class=advanced-ii` |
+
+(Swap the domain for a custom one if/when this site gets one.) Until this is set, buyers land on Stripe's generic confirmation screen instead of our page — payments still work fine either way.
 
 ## Contact info
 

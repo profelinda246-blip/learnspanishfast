@@ -373,6 +373,7 @@ blockquote cite { font-size: 13px; color: var(--muted); font-style: normal; }
 .level-details { display: grid; gap: 14px; }
 .detail-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
 .detail-row:last-of-type { border-bottom: 0; }
+.detail-row[hidden] { display: none; }
 .detail-label { font-size: 14px; color: var(--muted); }
 .detail-value { font-size: 15px; text-align: right; }
 .detail-price { font-size: 24px; font-weight: 500; letter-spacing: -0.04em; }
