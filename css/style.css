@@ -348,6 +348,7 @@ blockquote cite { font-size: 13px; color: var(--muted); font-style: normal; }
 
 /* -------------------------------------------------------- all classes page */
 .level-list { display: grid; gap: 16px; }
+.level-list[hidden] { display: none; }
 /* Sits between two level cards that are really one continuous course
    (Advanced I & II) so it reads as a shared intro rather than a
    surprise on the second card alone. */
@@ -358,12 +359,17 @@ blockquote cite { font-size: 13px; color: var(--muted); font-style: normal; }
   font-size: 15px;
   line-height: 1.6;
   color: var(--ink);
+  text-align: left;
 }
 .level-card {
   background: var(--panel); border: 1px solid var(--border);
   padding: clamp(22px, 3vw, 34px);
   display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: clamp(24px, 3vw, 40px); align-items: start;
+  /* Self-contained on color/alignment: this card also gets dropped into
+     section--accent (thank-you.html), which sets color + text-align on
+     the whole section and would otherwise bleed into the card's text. */
+  color: var(--ink); text-align: left;
 }
 .level-step { font-size: 13px; color: var(--accent); margin-bottom: 12px; }
 .level-card h2 { font-size: clamp(27px, 3.2vw, 38px); line-height: 1.02; letter-spacing: -0.045em; margin: 0 0 14px; }
@@ -382,7 +388,11 @@ blockquote cite { font-size: 13px; color: var(--muted); font-style: normal; }
 .ask-link:hover { color: var(--ink); }
 
 .step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-.step-card { background: var(--ground); border: 1px solid var(--border); padding: 28px 24px; }
+.step-card {
+  background: var(--ground); border: 1px solid var(--border); padding: 28px 24px;
+  /* Self-contained on color/alignment -- see .level-card for why. */
+  color: var(--ink); text-align: left;
+}
 .step-n { font-size: 30px; font-weight: 500; letter-spacing: -0.05em; color: var(--accent); margin-bottom: 14px; }
 .step-card h3 { font-size: 21px; font-weight: 500; letter-spacing: -0.035em; margin: 0 0 12px; }
 .step-card p { font-size: 16px; line-height: 1.62; font-weight: 300; color: var(--body-text); }
