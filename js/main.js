@@ -162,14 +162,18 @@
         meets: 'Thursdays, 5:20 to 7:00pm · 7 weeks',
         term: 'Aug 27 to Oct 8, 2026',
         novel: 'Pobre Ana (paperback).',
-        workbook: 'Amazon: LSF Beginning I curriculum — link coming soon. Email Profe Linda if you need it sooner.'
+        workbook: 'Amazon: LSF Beginning I curriculum — link coming soon. Email Profe Linda if you need it sooner.',
+        novelImg: 'img/novel-pobre-ana.jpg',
+        novelAlt: 'Pobre Ana novel cover, by Blaine Ray'
       },
       'beginning-ii': {
         name: 'Beginning II',
         meets: 'Thursdays, 5:20 to 7:00pm · 7 weeks',
         term: 'Oct 22 to Dec 10, 2026',
         novel: 'Las Aventuras en el Día de los Muertos.',
-        workbook: 'Amazon: LSF curriculum book — link coming soon. Email Profe Linda if you need it sooner.'
+        workbook: 'Amazon: LSF curriculum book — link coming soon. Email Profe Linda if you need it sooner.',
+        novelImg: 'img/novel-aventuras-dia-de-los-muertos.webp',
+        novelAlt: 'Aventuras en el Día de los Muertos novel cover, by Eliana Peck, PhD and Laura Drury'
       },
       'intermediate': {
         name: 'Intermediate',
@@ -177,7 +181,9 @@
         meets: 'Wednesdays, 5:20 to 7:00pm · 6 weeks',
         term: 'Sep 2 to Oct 7, 2026',
         novel: 'Pobre Ana Bailó Tango (paperback/audiobook).',
-        workbook: 'Amazon: LSF curriculum book — link coming soon. Email Profe Linda if you need it sooner.'
+        workbook: 'Amazon: LSF curriculum book — link coming soon. Email Profe Linda if you need it sooner.',
+        novelImg: 'img/novel-pobre-ana-bailo-tango.jpg',
+        novelAlt: 'Pobre Ana Bailó Tango novel cover, by Pat Verano'
       },
       'advanced-i': {
         name: 'Advanced I',
@@ -186,6 +192,8 @@
         term: 'Sep 8 to Oct 6, 2026',
         novel: 'Vida o Muerte en el Cusco, by Blaine Ray (paperback & audiobook).',
         workbook: 'No separate workbook for Advanced I/II — it is all guided conversation.',
+        novelImg: 'img/novel-vida-o-muerte-cusco.jpg',
+        novelAlt: 'Vida o Muerte en el Cusco novel cover, by Lisa Ray Turner and Blaine Ray',
         continuation: {
           text: 'Advanced I & II are one continuous course — same novel, same group, no new topic. If you haven’t already, register for Advanced II too so your seat carries through.',
           href: 'https://buy.stripe.com/6oUaEQ1fafEz74pbCycZa05',
@@ -198,7 +206,9 @@
         meets: 'Tuesdays, time to be confirmed · 5 weeks',
         term: 'Oct 20 to Nov 17, 2026',
         novel: 'Vida o Muerte en el Cusco, by Blaine Ray — same novel, continued.',
-        workbook: 'No separate workbook for Advanced I/II — it is all guided conversation.'
+        workbook: 'No separate workbook for Advanced I/II — it is all guided conversation.',
+        novelImg: 'img/novel-vida-o-muerte-cusco.jpg',
+        novelAlt: 'Vida o Muerte en el Cusco novel cover, by Lisa Ray Turner and Blaine Ray'
       }
     };
 
@@ -217,10 +227,15 @@
     document.getElementById('ty-heading').textContent = 'Gracias, ' + data.name + '!';
     document.getElementById('ty-lead').textContent =
       'You’re registered for ' + data.name + '. We’ll send the Zoom link and reading guide before your first class.';
+    document.getElementById('ty-class-name').textContent = data.name;
     document.getElementById('ty-meets').textContent = data.meets;
     document.getElementById('ty-term').textContent = data.term;
     document.getElementById('ty-novel').textContent = data.novel;
     document.getElementById('ty-workbook').textContent = data.workbook;
+
+    var novelImg = document.getElementById('ty-novel-img');
+    novelImg.src = data.novelImg;
+    novelImg.alt = data.novelAlt;
 
     if (data.format) {
       document.getElementById('ty-format-row').hidden = false;
