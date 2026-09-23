@@ -180,20 +180,20 @@
         prereq: 'Beginning I & II',
         meets: 'Wednesdays, 5:20 to 7:00pm · 6 weeks',
         term: 'Feb 3 to Mar 10, 2027',
-        novel: 'Robo en la Noche, by Christy Placido (paperback).',
+        novel: 'Robo en la Noche, by Kristy Placido (paperback).',
         workbook: 'Amazon: LSF curriculum book — link coming soon. Email Profe Linda if you need it sooner.',
-        // No cover art yet for this term's novel -- see all-classes.html TODO.
-        novelName: 'Robo en la Noche'
+        novelImg: 'img/novel-robo-en-la-noche.webp',
+        novelAlt: 'Robo en la Noche novel cover, by Kristy Placido'
       },
       'advanced-i': {
         name: 'Advanced I',
         prereq: 'Comfortable with the subjunctive and most tenses; teacher approval',
         meets: 'Tuesdays, 5:20 to 7:00pm · 5 weeks',
         term: 'Feb 9 to Mar 9, 2027',
-        novel: 'La Casa en Mango Street — 2009 edition (please buy this exact edition).',
+        novel: 'La Casa en Mango Street, by Sandra Cisneros (Debolsillo — 2009 edition; please buy this exact edition).',
         workbook: 'No separate workbook for Advanced I/II — it is all guided conversation.',
-        // No cover art yet for this term's novel -- see all-classes.html TODO.
-        novelName: 'La Casa en Mango Street',
+        novelImg: 'img/novel-casa-mango-street.webp',
+        novelAlt: 'La Casa en Mango Street novel cover, by Sandra Cisneros, translated by Fernanda Melchor (Debolsillo)',
         continuation: {
           text: 'Advanced I & II are designed as one continuous course, and that’s still what we recommend — but if you’re already a confident speaker, Advanced II can be taken on its own with Profe Linda’s approval. If you haven’t registered for it yet and want to continue, here’s the link.',
           href: 'https://buy.stripe.com/6oUaEQ1fafEz74pbCycZa05',
