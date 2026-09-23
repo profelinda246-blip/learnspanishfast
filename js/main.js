@@ -160,7 +160,7 @@
         name: 'Beginning I',
         format: 'In person at Cuesta College, SLO, or live via Zoom',
         meets: 'Thursdays, 5:20 to 7:00pm · 7 weeks',
-        term: 'Aug 27 to Oct 8, 2026',
+        term: 'Jan 28 to Mar 11, 2027',
         novel: 'Pobre Ana (paperback).',
         workbook: 'Amazon: LSF Beginning I curriculum — link coming soon. Email Profe Linda if you need it sooner.',
         novelImg: 'img/novel-pobre-ana.jpg',
@@ -179,31 +179,31 @@
         name: 'Intermediate',
         prereq: 'Beginning I & II',
         meets: 'Wednesdays, 5:20 to 7:00pm · 6 weeks',
-        term: 'Sep 2 to Oct 7, 2026',
-        novel: 'Pobre Ana Bailó Tango (paperback/audiobook).',
+        term: 'Feb 3 to Mar 10, 2027',
+        novel: 'Robo en la Noche, by Christy Placido (paperback).',
         workbook: 'Amazon: LSF curriculum book — link coming soon. Email Profe Linda if you need it sooner.',
-        novelImg: 'img/novel-pobre-ana-bailo-tango.jpg',
-        novelAlt: 'Pobre Ana Bailó Tango novel cover, by Pat Verano'
+        // No cover art yet for this term's novel -- see all-classes.html TODO.
+        novelName: 'Robo en la Noche'
       },
       'advanced-i': {
         name: 'Advanced I',
-        prereq: 'Comfortable with the subjunctive and most tenses',
-        meets: 'Tuesdays, time to be confirmed · 5 weeks',
-        term: 'Sep 8 to Oct 6, 2026',
-        novel: 'Vida o Muerte en el Cusco, by Blaine Ray (paperback & audiobook).',
+        prereq: 'Comfortable with the subjunctive and most tenses; teacher approval',
+        meets: 'Tuesdays, 5:20 to 7:00pm · 5 weeks',
+        term: 'Feb 9 to Mar 9, 2027',
+        novel: 'La Casa en Mango Street — 2009 edition (please buy this exact edition).',
         workbook: 'No separate workbook for Advanced I/II — it is all guided conversation.',
-        novelImg: 'img/novel-vida-o-muerte-cusco.jpg',
-        novelAlt: 'Vida o Muerte en el Cusco novel cover, by Lisa Ray Turner and Blaine Ray',
+        // No cover art yet for this term's novel -- see all-classes.html TODO.
+        novelName: 'La Casa en Mango Street',
         continuation: {
-          text: 'Advanced I & II are one continuous course — same novel, same group, no new topic. If you haven’t already, register for Advanced II too so your seat carries through.',
+          text: 'Advanced I & II are designed as one continuous course, and that’s still what we recommend — but if you’re already a confident speaker, Advanced II can be taken on its own with Profe Linda’s approval. If you haven’t registered for it yet and want to continue, here’s the link.',
           href: 'https://buy.stripe.com/6oUaEQ1fafEz74pbCycZa05',
           linkText: 'Register for Advanced II →'
         }
       },
       'advanced-ii': {
         name: 'Advanced II',
-        prereq: 'Advanced I, subjunctive comfort, plus teacher approval',
-        meets: 'Tuesdays, time to be confirmed · 5 weeks',
+        prereq: 'Comfortable speaking Spanish; teacher approval (Advanced I recommended, not required)',
+        meets: 'Tuesdays, 5:20 to 7:00pm · 5 weeks',
         term: 'Oct 20 to Nov 17, 2026',
         novel: 'Vida o Muerte en el Cusco, by Blaine Ray — same novel, continued.',
         workbook: 'No separate workbook for Advanced I/II — it is all guided conversation.',
@@ -233,9 +233,21 @@
     document.getElementById('ty-novel').textContent = data.novel;
     document.getElementById('ty-workbook').textContent = data.workbook;
 
+    var coverBox = document.getElementById('ty-novel-cover');
     var novelImg = document.getElementById('ty-novel-img');
-    novelImg.src = data.novelImg;
-    novelImg.alt = data.novelAlt;
+    var novelPlaceholder = document.getElementById('ty-novel-placeholder');
+    if (data.novelImg) {
+      coverBox.classList.add('ph--filled');
+      novelImg.hidden = false;
+      novelImg.src = data.novelImg;
+      novelImg.alt = data.novelAlt;
+      novelPlaceholder.hidden = true;
+    } else {
+      coverBox.classList.remove('ph--filled');
+      novelImg.hidden = true;
+      novelPlaceholder.hidden = false;
+      novelPlaceholder.textContent = 'Novel cover: ' + data.novelName;
+    }
 
     if (data.format) {
       document.getElementById('ty-format-row').hidden = false;

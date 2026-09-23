@@ -27,13 +27,25 @@ Reproduced from the design handoff in [`design_handoff_lsf_website/`](design_han
 
 ## Course catalogue
 
-`all-classes.html` reflects the real 2026 course lineup, not the design handoff's prototype levels. The five levels are **Beginning I, Beginning II, Intermediate, Advanced I, Advanced II** (the handoff had "Intermediate Fall / Intermediate Spring / Intermediate-Advanced" instead — that naming is gone everywhere, including the placement quiz in `js/main.js` and the nav dropdown on all four pages). Schedule, term dates, prerequisites, novels and required materials per level come from the client's real course descriptions, not the handoff. Price is confirmed at **$139 for every level**. The Cuesta College in-person/Zoom hybrid format is confirmed to apply to **Beginning I only** — the other four levels are Zoom-only.
+`all-classes.html` reflects the real course lineup, not the design handoff's prototype levels. The five levels are **Beginning I, Beginning II, Intermediate, Advanced I, Advanced II** (the handoff had "Intermediate Fall / Intermediate Spring / Intermediate-Advanced" instead — that naming is gone everywhere, including the placement quiz in `js/main.js` and the nav dropdown on all four pages). Schedule, term dates, prerequisites, novels and required materials per level come from the client's real course descriptions, not the handoff. Price is confirmed at **$139 for every level**. The Cuesta College in-person/Zoom hybrid format is confirmed to apply to **Beginning I only** — the other four levels are Zoom-only. Advanced I & II meet **Tuesdays 5:20-7:00pm** (confirmed — was previously "time to be confirmed").
+
+**2026-27 school year**: the client sent the full two-term schedule (client calls them "Session I" = fall 2026, "Session II" = spring 2027). Each card shows whichever term hadn't started yet as of the update (2026-09-23):
+
+| Level | Term shown | Next term queued (not yet on the site) |
+| --- | --- | --- |
+| Beginning I | Feb 2027 (2026 term had already started) | — |
+| Beginning II | Oct 2026 (hadn't started yet) | Apr 1–May 13, 2027, novel changes to **Los Secretos de la Alhambra** |
+| Intermediate | Feb 2027 (2026 term had already started) | — |
+| Advanced I | Feb 2027 (2026 term had already started) | — |
+| Advanced II | Oct 2026 (hadn't started yet) | Mar 23–Apr 20, 2027, novel **TBD** |
+
+When Beginning II's and Advanced II's current terms wrap, swap in the queued dates/novels above — each card has an HTML comment marking exactly this. **Advanced II's prerequisite loosened**: the client's schedule now says it can be taken without Advanced I ("students who can speak well" + teacher approval), so the "one continuous course" framing (added earlier at the client's request) is now presented as the *recommendation*, not a hard requirement — same for the placement-quiz copy in `js/main.js`.
 
 ## Known placeholders / open items
 
-- **Photos and logo are mostly still placeholders.** Real photos go in [`img/`](img/) (created for this) — `img/profe-linda-hero.jpg` (homepage hero), `img/profe-linda-meet.jpg` (homepage "Meet Linda Ward" and the About page hero), and all 5 novel covers (`img/novel-*`, used in both the homepage course teasers and `all-classes.html`) are filled in; the remaining images are still labelled striped boxes, and the logo hasn't come from the client yet.
+- **Photos and logo are mostly still placeholders.** Real photos go in [`img/`](img/) (created for this) — `img/profe-linda-hero.jpg` (homepage hero), `img/profe-linda-meet.jpg` (homepage "Meet Linda Ward" and the About page hero) are filled in. Novel covers: Beginning I, Beginning II, and Advanced II (current term) have real cover art; **Intermediate's current novel (Robo en la Noche) and Advanced I's current novel (La Casa en Mango Street, 2009 edition) do not** — those two cards show a striped placeholder again until Linda sends cover art. The rest of the images are still placeholders, and the logo hasn't come from the client yet.
 - **Amazon curriculum workbook links** are named per level ("Amazon: LSF Beginning I curriculum (link coming)") but not yet linked — `TODO` comments mark each spot in `all-classes.html`.
-- **Advanced I and Advanced II meeting times** aren't confirmed — only the day (Tuesdays) and duration (5 weeks) were given, so the cards read "time to be confirmed". `TODO` comments mark both.
+- **Intermediate's audiobook may work differently this term.** The 2027 schedule says its audiobook "IS a download," while every other class's is explicitly "NOT a download" (the $5 TPRSBooks subscription). This wasn't published as a stated difference — flagged with a `TODO` in `all-classes.html` — confirm with Linda before saying anything concrete about it.
 - **No mobile hamburger menu.** Layout is fully fluid (`clamp()`, `auto-fit` grids) and the nav wraps on narrow screens; a dedicated mobile menu is still to be designed.
 
 ## Stripe checkout
