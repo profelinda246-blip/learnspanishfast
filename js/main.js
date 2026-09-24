@@ -162,7 +162,8 @@
         meets: 'Thursdays, 5:20 to 7:00pm · 7 weeks',
         term: 'Jan 28 to Mar 11, 2027',
         novel: 'Pobre Ana (paperback).',
-        workbook: 'Amazon: LSF Beginning I curriculum — link coming soon. Email Profe Linda if you need it sooner.',
+        workbook: 'Amazon: LSF Beginning I curriculum.',
+        workbookUrl: 'https://www.amazon.com/dp/B0DX29JDT3',
         novelImg: 'img/novel-pobre-ana.jpg',
         novelAlt: 'Pobre Ana novel cover, by Blaine Ray'
       },
@@ -171,7 +172,8 @@
         meets: 'Thursdays, 5:20 to 7:00pm · 7 weeks',
         term: 'Oct 22 to Dec 10, 2026',
         novel: 'Las Aventuras en el Día de los Muertos.',
-        workbook: 'Amazon: LSF curriculum book — link coming soon. Email Profe Linda if you need it sooner.',
+        workbook: 'Amazon: LSF curriculum book.',
+        workbookUrl: 'https://www.amazon.com/dp/B0FVFM4JPP',
         novelImg: 'img/novel-aventuras-dia-de-los-muertos.webp',
         novelAlt: 'Aventuras en el Día de los Muertos novel cover, by Eliana Peck, PhD and Laura Drury'
       },
@@ -191,7 +193,7 @@
         meets: 'Tuesdays, 5:20 to 7:00pm · 5 weeks',
         term: 'Feb 9 to Mar 9, 2027',
         novel: 'La Casa en Mango Street, by Sandra Cisneros (Debolsillo — 2009 edition; please buy this exact edition).',
-        workbook: 'No separate workbook for Advanced I/II — it is all guided conversation.',
+        workbook: 'Amazon: activity guide for this novel — link coming soon. Email Profe Linda if you need it sooner.',
         novelImg: 'img/novel-casa-mango-street.webp',
         novelAlt: 'La Casa en Mango Street novel cover, by Sandra Cisneros, translated by Fernanda Melchor (Debolsillo)',
         continuation: {
@@ -206,7 +208,8 @@
         meets: 'Tuesdays, 5:20 to 7:00pm · 5 weeks',
         term: 'Oct 20 to Nov 17, 2026',
         novel: 'Vida o Muerte en el Cusco, by Blaine Ray — same novel, continued.',
-        workbook: 'No separate workbook for Advanced I/II — it is all guided conversation.',
+        workbook: 'Amazon: Advanced Activity & Comprehension Guide.',
+        workbookUrl: 'https://www.amazon.com/dp/B0HJ6TSK97',
         novelImg: 'img/novel-vida-o-muerte-cusco.jpg',
         novelAlt: 'Vida o Muerte en el Cusco novel cover, by Lisa Ray Turner and Blaine Ray'
       }
@@ -231,7 +234,16 @@
     document.getElementById('ty-meets').textContent = data.meets;
     document.getElementById('ty-term').textContent = data.term;
     document.getElementById('ty-novel').textContent = data.novel;
-    document.getElementById('ty-workbook').textContent = data.workbook;
+    var workbookEl = document.getElementById('ty-workbook');
+    workbookEl.textContent = data.workbook + ' ';
+    if (data.workbookUrl) {
+      var workbookLink = document.createElement('a');
+      workbookLink.href = data.workbookUrl;
+      workbookLink.target = '_blank';
+      workbookLink.rel = 'noopener';
+      workbookLink.textContent = 'Buy on Amazon →';
+      workbookEl.appendChild(workbookLink);
+    }
 
     var coverBox = document.getElementById('ty-novel-cover');
     var novelImg = document.getElementById('ty-novel-img');
