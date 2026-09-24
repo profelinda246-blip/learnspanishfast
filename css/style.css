@@ -349,6 +349,12 @@ blockquote cite { font-size: 13px; color: var(--muted); font-style: normal; }
 /* -------------------------------------------------------- all classes page */
 .level-list { display: grid; gap: 16px; }
 .level-list[hidden] { display: none; }
+.year-divider { margin-bottom: clamp(20px, 3vw, 28px); }
+.year-divider--next {
+  margin-top: clamp(48px, 7vw, 72px);
+  padding-top: clamp(40px, 6vw, 56px);
+  border-top: 1px solid var(--border);
+}
 /* Sits between two level cards that are really one continuous course
    (Advanced I & II) so it reads as a shared intro rather than a
    surprise on the second card alone. */

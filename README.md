@@ -30,15 +30,17 @@ Reproduced from the design handoff in [`design_handoff_lsf_website/`](design_han
 
 `all-classes.html` reflects the real course lineup, not the design handoff's prototype levels. The five levels are **Beginning I, Beginning II, Intermediate, Advanced I, Advanced II** (the handoff had "Intermediate Fall / Intermediate Spring / Intermediate-Advanced" instead — that naming is gone everywhere, including the placement quiz in `js/main.js` and the nav dropdown on all four pages). Schedule, term dates, prerequisites, novels and required materials per level come from the client's real course descriptions, not the handoff. Price is confirmed at **$139 for every level**. The Cuesta College in-person/Zoom hybrid format is confirmed to apply to **Beginning I only** — the other four levels are Zoom-only. Advanced I & II meet **Tuesdays 5:20-7:00pm** (confirmed — was previously "time to be confirmed").
 
-**2026-27 school year**: the client sent the full two-term schedule (client calls them "Session I" = fall 2026, "Session II" = spring 2027). Each card shows whichever term hadn't started yet as of the update (2026-09-23):
+**2026-27 school year**: the client sent the full two-term schedule (client calls them "Session I" = fall 2026, "Session II" = spring 2027). Each card shows whichever term hadn't started yet as of the update (2026-09-23), and `all-classes.html` groups the cards under two headline sections — **"2026 classes"** then **"2027 classes"** — instead of mixing years inside the pedagogical Beginning→Advanced order, at the client's request: reading five cards with dates jumping between two different years, in no obvious pattern, was confusing (her framing: if it trips her up, it'll really trip up an older, less tech-savvy student). The Courses dropdown and the homepage teasers still use the pedagogical order — only this page's main list is grouped by year.
 
-| Level | Term shown | Next term queued (not yet on the site) |
-| --- | --- | --- |
-| Beginning I | Feb 2027 (2026 term had already started) | — |
-| Beginning II | Oct 2026 (hadn't started yet) | Apr 1–May 13, 2027, novel changes to **Los Secretos de la Alhambra** |
-| Intermediate | Feb 2027 (2026 term had already started) | — |
-| Advanced I | Feb 2027 (2026 term had already started) | — |
-| Advanced II | Oct 2026 (hadn't started yet) | Mar 23–Apr 20, 2027, novel **TBD** |
+| Level | Section shown in | Term shown | Next term queued (not yet on the site) |
+| --- | --- | --- | --- |
+| Beginning II | 2026 classes | Oct 2026 (hadn't started yet) | Apr 1–May 13, 2027, novel changes to **Los Secretos de la Alhambra** |
+| Advanced II | 2026 classes | Oct 2026 (hadn't started yet) | Mar 23–Apr 20, 2027, novel **TBD** |
+| Beginning I | 2027 classes | Feb 2027 (2026 term had already started) | — |
+| Intermediate | 2027 classes | Feb 2027 (2026 term had already started) | — |
+| Advanced I | 2027 classes | Feb 2027 (2026 term had already started) | — |
+
+**Advanced I/II split across the two sections, on purpose.** The displayed Advanced II (2026) and Advanced I (2027) aren't actually a matching pair — Advanced II's shown session predates Advanced I's shown session, since each independently rolled to "whichever term hasn't started yet." The old copy ("Advanced II picks up where Advanced I leaves off a couple of weeks later") stopped being true the moment that happened, so it's been replaced: a short `.level-group-note` on each card explains the pairing in general terms and points to the other one's section, without claiming a chronological adjacency that isn't there right now. Once Advanced II rolls to its 2027 term (see table above), it'll land in the same section as Advanced I and the notes can go back to describing a real back-to-back pair.
 
 When Beginning II's and Advanced II's current terms wrap, swap in the queued dates/novels above — each card has an HTML comment marking exactly this. **Advanced II's prerequisite loosened**: the client's schedule now says it can be taken without Advanced I ("students who can speak well" + teacher approval), so the "one continuous course" framing (added earlier at the client's request) is now presented as the *recommendation*, not a hard requirement — same for the placement-quiz copy in `js/main.js`.
 
