@@ -24,6 +24,7 @@ Reproduced from the design handoff in [`design_handoff_lsf_website/`](design_han
 - The homepage stat now reads "5 levels" (was "4 levels") to match the catalogue — flagged in `BEHAVIOR.md`.
 - The handoff prototyped an e-commerce-style cart (add classes, see a running total, one combined checkout). These are enrollments in a live class with a fixed number of seats, not a store, so the cart was dropped: each class card in `all-classes.html` has its own "Register for this class" button that goes straight to that class's enrollment, not a shared basket.
 - The homepage's "La clase, en fotos" and About's "En la clase" placeholder photo grids (4 unlabelled student/classroom placeholder shots each) were removed at the client's request.
+- **Mobile nav**: below 860px, `.site-nav` collapses behind a hamburger button (`.nav-toggle`, `initMobileNav` in `js/main.js`) instead of wrapping onto multiple lines. The Courses flyout stops being a hover panel in this mode and is just always expanded in place (no hover on touch) — same markup, CSS-driven. Closes on a nav link click, Escape, an outside tap, or resizing back to desktop width.
 
 ## Course catalogue
 
@@ -46,7 +47,6 @@ When Beginning II's and Advanced II's current terms wrap, swap in the queued dat
 - **Photos and logo are mostly still placeholders.** Real photos go in [`img/`](img/) (created for this) — `img/profe-linda-hero.jpg` (homepage hero) and `img/profe-linda-meet.jpg` (homepage "Meet Linda Ward" and the About page hero) are filled in, and all 5 currently-shown novel covers now have real cover art, Intermediate's (Robo en la Noche) and Advanced I's (La Casa en Mango Street) included. The rest of the site's images are still placeholders, and the logo hasn't come from the client yet.
 - **Amazon curriculum workbook links**: Beginning I, Beginning II, and Advanced II now have real links (in `all-classes.html`, `js/main.js`'s `workbookUrl`, and clickable on `thank-you.html`). Still missing: Intermediate's (for Robo en la Noche) and Advanced I's (for La Casa en Mango Street) — `TODO` comments mark both spots. There's also an unplaced link Linda sent, titled "Beginning II Activity Guide" on Amazon but for the novel *Pobre Ana Bailó Tango* (`https://www.amazon.com/dp/B0GWXPHPMY`) — that's actually Intermediate's old 2026-term novel, not Beginning II's, so it isn't attached anywhere on the live site; keep it in mind if Intermediate ever cycles back to that term.
 - **Intermediate's audiobook may work differently this term.** The 2027 schedule says its audiobook "IS a download," while every other class's is explicitly "NOT a download" (the $5 TPRSBooks subscription). This wasn't published as a stated difference — flagged with a `TODO` in `all-classes.html` — confirm with Linda before saying anything concrete about it.
-- **No mobile hamburger menu.** Layout is fully fluid (`clamp()`, `auto-fit` grids) and the nav wraps on narrow screens; a dedicated mobile menu is still to be designed.
 
 ## Stripe checkout
 
