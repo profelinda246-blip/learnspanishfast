@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<script>
+  // Old broken redirect sent some visitors to /{uri}; browsers cached it.
+  // Send them home. The ?inicio=1 makes the URL differ from the cached one, avoiding a loop.
+  (function () {
+    var p = location.pathname;
+    try { p = decodeURIComponent(p); } catch (e) {}
+    if (p.indexOf("{uri}") !== -1) {
+      location.replace("https://www.learnspanishfasthoy.com/?inicio=1");
+    }
+  })();
+</script>
+<title>Page not found — Learn Spanish Fast hoy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="/" class="logo">
+    <strong>Learn Spanish Fast</strong>
+    <span>hoy · con Profe Linda</span>
+  </a>
+</header>
+
+<section class="section section--accent">
+  <div class="wrap--tight" style="text-align:center">
+    <div class="eyebrow" style="color:var(--accent-pale)">404</div>
+    <h1 style="font-size:clamp(36px,5.2vw,60px); line-height:1.02; letter-spacing:-0.05em; margin-bottom:18px; color:var(--ink-on-accent)">¡Ay, no!</h1>
+    <p class="lead" style="max-width:38em; margin:0 auto 24px; color:var(--accent-tint)">We couldn't find that page. It may have moved — let's get you back on track.</p>
+    <div class="pill-row" style="justify-content:center">
+      <a href="/" class="pill pill--on-accent">Go to the homepage</a>
+      <a href="/all-classes.html" class="pill pill--on-accent">See all classes</a>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
