@@ -192,10 +192,11 @@
         prereq: 'Comfortable with the subjunctive and most tenses; teacher approval',
         meets: 'Tuesdays, 5:20 to 7:00pm · 5 weeks',
         term: 'Feb 9 to Mar 9, 2027',
-        novel: 'La Casa en Mango Street, by Sandra Cisneros (Debolsillo — 2009 edition; please buy this exact edition).',
+        novel: 'La Casa en Mango Street, by Sandra Cisneros (25th anniversary edition, translated by Elena Poniatowska).',
+        novelUrl: 'https://www.amazon.com/dp/B00C8S9VAW',
         workbook: 'Amazon: activity guide for this novel — link coming soon. Email Profe Linda if you need it sooner.',
         novelImg: 'img/novel-casa-mango-street.webp',
-        novelAlt: 'La Casa en Mango Street novel cover, by Sandra Cisneros, translated by Fernanda Melchor (Debolsillo)',
+        novelAlt: 'La Casa en Mango Street novel cover, by Sandra Cisneros, translated by Elena Poniatowska (25th anniversary edition)',
         continuation: {
           text: 'Advanced I & II are designed as one continuous course, and that’s still what we recommend — but if you’re already a confident speaker, Advanced II can be taken on its own with Profe Linda’s approval. If you haven’t registered for it yet and want to continue, here’s the link.',
           href: 'https://buy.stripe.com/6oUaEQ1fafEz74pbCycZa05',
@@ -233,7 +234,16 @@
     document.getElementById('ty-class-name').textContent = data.name;
     document.getElementById('ty-meets').textContent = data.meets;
     document.getElementById('ty-term').textContent = data.term;
-    document.getElementById('ty-novel').textContent = data.novel;
+    var novelEl = document.getElementById('ty-novel');
+    novelEl.textContent = data.novel + ' ';
+    if (data.novelUrl) {
+      var novelLink = document.createElement('a');
+      novelLink.href = data.novelUrl;
+      novelLink.target = '_blank';
+      novelLink.rel = 'noopener';
+      novelLink.textContent = 'Buy on Amazon →';
+      novelEl.appendChild(novelLink);
+    }
     var workbookEl = document.getElementById('ty-workbook');
     workbookEl.textContent = data.workbook + ' ';
     if (data.workbookUrl) {

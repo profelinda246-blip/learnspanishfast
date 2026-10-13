@@ -241,6 +241,7 @@ h1 {
    fill/caption padding and let the image cover the box edge to edge. */
 .ph--filled { padding: 0; background-image: none; overflow: hidden; }
 .ph--filled img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ph--filled > a { display: block; width: 100%; height: 100%; }
 .ph-offset { position: relative; }
 .ph-offset::before {
   content: '';
