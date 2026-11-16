@@ -332,11 +332,125 @@
     });
   }
 
+
+  /* ------------------------------------------------- email list popup (Kit)
+     Joins Kit form 10200479. Shows once after ~18 s or half-page scroll;
+     after a close it stays away for 7 days, after a signup for good.
+     Skipped on the thank-you page. Any page can open it with a link or
+     button carrying data-open-signup. */
+  var KIT_FORM = '10200479';
+  var KIT_URL = 'https://app.kit.com/forms/' + KIT_FORM + '/subscriptions';
+  function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+
+  function initSignupPopup() {
+    if (/thank-you/.test(location.pathname)) return;
+    var pop = document.createElement('div');
+    pop.className = 'lsf-pop'; pop.hidden = true;
+    pop.setAttribute('role', 'dialog'); pop.setAttribute('aria-modal', 'true'); pop.setAttribute('aria-labelledby', 'lsf-pop-title');
+    pop.innerHTML =
+      '<div class="lsf-pop__backdrop" data-close></div>' +
+      '<div class="lsf-pop__box">' +
+        '<div class="lsf-pop__img"><img src="img/profe-linda-meet.jpg" alt="" loading="lazy"></div>' +
+        '<div class="lsf-pop__body">' +
+          '<button type="button" class="lsf-pop__close" data-close aria-label="Close">&times;</button>' +
+          '<div class="lsf-pop__form-wrap">' +
+            '<div class="eyebrow">¡Hola! · Join the list</div>' +
+            '<h2 id="lsf-pop-title">Be the first to know when a <em>new class</em> starts</h2>' +
+            '<p class="lsf-pop__text">A new Beginning I group starts every month. Get the dates before spots fill up, plus short Spanish tips from Profe Linda.</p>' +
+            '<ul class="lsf-pop__list"><li>New class dates &amp; early registration</li><li>Easy Spanish tips you can use right away</li><li>No spam. Unsubscribe anytime.</li></ul>' +
+            '<form class="lsf-pop__form" action="' + KIT_URL + '" method="post" target="lsf-kit-frame" novalidate>' +
+              '<label for="lsf-pop-email">Email address</label>' +
+              '<input id="lsf-pop-email" type="email" name="email_address" placeholder="Your email address" autocomplete="email" required>' +
+              '<button type="submit" class="pill pill--accent">Keep me posted</button>' +
+              '<p class="lsf-pop__msg" aria-live="polite"></p>' +
+            '</form>' +
+          '</div>' +
+          '<div class="lsf-pop__done" hidden>' +
+            '<div class="eyebrow">¡Gracias!</div>' +
+            '<h2>You’re almost in</h2>' +
+            '<p class="lsf-pop__text">Check your inbox for an email from Profe Linda and confirm your subscription. If you don’t see it, look in Promotions or Spam.</p>' +
+            '<button type="button" class="pill pill--outline" data-close>Back to the site</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+      '<iframe name="lsf-kit-frame" title="" hidden></iframe>';
+    document.body.appendChild(pop);
+
+    var form = pop.querySelector('form'), input = pop.querySelector('input'), btn = form.querySelector('button');
+    var msg = pop.querySelector('.lsf-pop__msg'), lastFocus = null, shown = false;
+
+    function open() {
+      if (!pop.hidden) return;
+      shown = true; lastFocus = document.activeElement;
+      pop.hidden = false; document.body.style.overflow = 'hidden';
+      setTimeout(function () { input.focus(); }, 50);
+    }
+    function close() {
+      pop.hidden = true; document.body.style.overflow = '';
+      if (store('lsf_signup') !== 'done') store('lsf_signup', String(Date.now()));
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+    function done() {
+      store('lsf_signup', 'done');
+      pop.querySelector('.lsf-pop__form-wrap').hidden = true;
+      pop.querySelector('.lsf-pop__done').hidden = false;
+      pop.querySelector('.lsf-pop__done button').focus();
+    }
+
+    pop.addEventListener('click', function (e) { if (e.target.closest('[data-close]')) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (pop.hidden) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'Tab') {
+        var f = [].filter.call(pop.querySelectorAll('button, input'), function (el) { return el.offsetParent; });
+        if (!f.length) return;
+        if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
+        else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
+      }
+    });
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-open-signup]');
+      if (t) { e.preventDefault(); open(); }
+    });
+
+    form.addEventListener('submit', function (e) {
+      var email = input.value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        e.preventDefault(); msg.textContent = 'Please enter a valid email address.'; input.focus(); return;
+      }
+      if (!window.fetch) { setTimeout(done, 400); return; }   // old browsers: plain form post into the hidden frame
+      e.preventDefault();
+      msg.textContent = ''; btn.disabled = true; btn.textContent = 'Sending…';
+      fetch(KIT_URL, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) })
+        .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok, d: d }; }); })
+        .then(function (res) {
+          if (res.ok && (!res.d.status || res.d.status === 'success' || res.d.status === 'quarantined')) { done(); return; }
+          btn.disabled = false; btn.textContent = 'Keep me posted';
+          msg.textContent = 'Something went wrong. Please check your email and try again.';
+        })
+        .catch(function () {               // blocked by the browser: send the normal way instead
+          form.submit(); setTimeout(done, 600);
+        });
+    });
+
+    // When to show it on its own
+    var last = store('lsf_signup');
+    if (last === 'done') return;
+    if (last && Date.now() - Number(last) < 7 * 24 * 3600 * 1000) return;
+    var timer = setTimeout(open, 18000);
+    function onScroll() {
+      var h = document.documentElement.scrollHeight - innerHeight;
+      if (h > 0 && scrollY / h > 0.5) { window.removeEventListener('scroll', onScroll); clearTimeout(timer); if (!shown) open(); }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initFlyouts();
     initFaq();
     initPlacement();
     initThankYou();
     initMobileNav();
+    initSignupPopup();
   });
 })();
