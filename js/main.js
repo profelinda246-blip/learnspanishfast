@@ -367,8 +367,8 @@
           '</div>' +
           '<div class="lsf-pop__done" hidden>' +
             '<div class="eyebrow">¡Gracias!</div>' +
-            '<h2>You’re almost in</h2>' +
-            '<p class="lsf-pop__text">Check your inbox for an email from Profe Linda and confirm your subscription. If you don’t see it, look in Promotions or Spam.</p>' +
+            '<h2>You’re in!</h2>' +
+            '<p class="lsf-pop__text">Thanks for joining. You’ll be the first to hear about new class dates, plus Spanish tips from Profe Linda. If our emails land in Promotions or Spam, move them to your inbox so you don’t miss a thing.</p>' +
             '<button type="button" class="pill pill--outline" data-close>Back to the site</button>' +
           '</div>' +
         '</div>' +
