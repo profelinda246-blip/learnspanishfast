@@ -164,6 +164,7 @@
         novel: 'Pobre Ana (paperback).',
         workbook: 'Amazon: LSF Beginning I curriculum.',
         workbookUrl: 'https://www.amazon.com/dp/B0DX29JDT3',
+        coverUrl: 'https://www.tprsbooks.com/shop/pobre-ana/',
         novelImg: 'img/novel-pobre-ana.jpg',
         novelAlt: 'Pobre Ana novel cover, by Blaine Ray'
       },
@@ -174,6 +175,7 @@
         novel: 'Las Aventuras en el Día de los Muertos.',
         workbook: 'Amazon: LSF curriculum book.',
         workbookUrl: 'https://www.amazon.com/dp/B0FVFM4JPP',
+        coverUrl: 'https://www.tprsbooks.com/shop/aventuras-en-el-dia-de-los-muertos/',
         novelImg: 'img/novel-aventuras-dia-de-los-muertos.webp',
         novelAlt: 'Aventuras en el Día de los Muertos novel cover, by Eliana Peck, PhD and Laura Drury'
       },
@@ -184,6 +186,7 @@
         term: 'Feb 3 to Mar 10, 2027',
         novel: 'Robo en la Noche, by Kristy Placido (paperback).',
         workbook: 'Amazon: LSF curriculum book — link coming soon. Email Profe Linda if you need it sooner.',
+        coverUrl: 'https://www.waysidepublishing.com/languages/spanish/robo-en-la-noche',
         novelImg: 'img/novel-robo-en-la-noche.webp',
         novelAlt: 'Robo en la Noche novel cover, by Kristy Placido'
       },
@@ -195,6 +198,7 @@
         novel: 'La Casa en Mango Street, by Sandra Cisneros (25th anniversary edition, translated by Elena Poniatowska).',
         novelUrl: 'https://www.amazon.com/dp/B00C8S9VAW',
         workbook: 'Amazon: activity guide for this novel — link coming soon. Email Profe Linda if you need it sooner.',
+        coverUrl: 'https://www.amazon.com/dp/B00C8S9VAW',
         novelImg: 'img/novel-casa-mango-street.webp',
         novelAlt: 'La Casa en Mango Street novel cover, by Sandra Cisneros, translated by Elena Poniatowska (25th anniversary edition)',
         continuation: {
@@ -211,6 +215,7 @@
         novel: 'Vida o Muerte en el Cusco, by Blaine Ray — same novel, continued.',
         workbook: 'Amazon: Advanced Activity & Comprehension Guide.',
         workbookUrl: 'https://www.amazon.com/dp/B0HJ6TSK97',
+        coverUrl: 'https://www.tprsbooks.com/shop/vida-o-muerte-en-el-cusco/',
         novelImg: 'img/novel-vida-o-muerte-cusco.jpg',
         novelAlt: 'Vida o Muerte en el Cusco novel cover, by Lisa Ray Turner and Blaine Ray'
       }
@@ -256,6 +261,16 @@
     }
 
     var coverBox = document.getElementById('ty-novel-cover');
+    var coverLink = document.getElementById('ty-novel-link');
+    if (coverLink) {
+      if (data.coverUrl) {
+        coverLink.href = data.coverUrl;
+        coverLink.setAttribute('aria-label', data.novelAlt.replace(/ novel cover.*/, '') + ': see the book (opens in a new tab)');
+      } else {
+        coverLink.removeAttribute('href');
+        coverLink.classList.remove('cover-link');
+      }
+    }
     var novelImg = document.getElementById('ty-novel-img');
     var novelPlaceholder = document.getElementById('ty-novel-placeholder');
     if (data.novelImg) {
