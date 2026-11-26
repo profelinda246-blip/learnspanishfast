@@ -358,7 +358,7 @@
   function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
 
   function initSignupPopup() {
-    if (/thank-you/.test(location.pathname)) return;
+    if (/thank-you|story/.test(location.pathname)) return;
     var pop = document.createElement('div');
     pop.className = 'lsf-pop'; pop.hidden = true;
     pop.setAttribute('role', 'dialog'); pop.setAttribute('aria-modal', 'true'); pop.setAttribute('aria-labelledby', 'lsf-pop-title');
